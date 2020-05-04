@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAB52FEF244F3A58001798D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB52FEE244F3A58001798D0 /* AppDelegate.swift */; };
+		DAB52FF1244F3A58001798D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB52FF0244F3A58001798D0 /* SceneDelegate.swift */; };
+		DAB52FF3244F3A58001798D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB52FF2244F3A58001798D0 /* ViewController.swift */; };
+		DAB52FF6244F3A58001798D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB52FF4244F3A58001798D0 /* Main.storyboard */; };
+		DAB52FF8244F3A59001798D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB52FF7244F3A59001798D0 /* Assets.xcassets */; };
+		DAB53006244F3A59001798D0 /* Light_CasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB53005244F3A59001798D0 /* Light_CasterTests.swift */; };
+		DAB53011244F3A59001798D0 /* Light_CasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB53010244F3A59001798D0 /* Light_CasterUITests.swift */; };
+		DAB53029244F3AE9001798D0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5301E244F3AE9001798D0 /* Camera.swift */; };
+		DAB5302A244F3AE9001798D0 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5301F244F3AE9001798D0 /* Matrix.swift */; };
+		DAB5302B244F3AE9001798D0 /* container2.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB53020244F3AE9001798D0 /* container2.png */; };
+		DAB5302C244F3AE9001798D0 /* container2_specular.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB53021244F3AE9001798D0 /* container2_specular.png */; };
+		DAB5302D244F3AE9001798D0 /* BasicStruct.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAB53022244F3AE9001798D0 /* BasicStruct.metal */; };
+		DAB5302E244F3AE9001798D0 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAB53023244F3AE9001798D0 /* Lighting.metal */; };
+		DAB5302F244F3AE9001798D0 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB53024244F3AE9001798D0 /* Renderer.swift */; };
+		DAB53031244F3AE9001798D0 /* texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DAB53026244F3AE9001798D0 /* texture.jpg */; };
+		DAB53032244F3AE9001798D0 /* wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DAB53027244F3AE9001798D0 /* wall.jpg */; };
+		DAB53033244F3AEA001798D0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB53028244F3AE9001798D0 /* Model.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAB53002244F3A59001798D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB52FE3244F3A58001798D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB52FEA244F3A58001798D0;
+			remoteInfo = Light_Caster;
+		};
+		DAB5300D244F3A59001798D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB52FE3244F3A58001798D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB52FEA244F3A58001798D0;
+			remoteInfo = Light_Caster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DAB52FEB244F3A58001798D0 /* Light_Caster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Light_Caster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB52FEE244F3A58001798D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DAB52FF0244F3A58001798D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DAB52FF2244F3A58001798D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DAB52FF5244F3A58001798D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAB52FF7244F3A59001798D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAB52FFC244F3A59001798D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB53001244F3A59001798D0 /* Light_CasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Light_CasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB53005244F3A59001798D0 /* Light_CasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_CasterTests.swift; sourceTree = "<group>"; };
+		DAB53007244F3A59001798D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB5300C244F3A59001798D0 /* Light_CasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Light_CasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB53010244F3A59001798D0 /* Light_CasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_CasterUITests.swift; sourceTree = "<group>"; };
+		DAB53012244F3A59001798D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB5301E244F3AE9001798D0 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		DAB5301F244F3AE9001798D0 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		DAB53020244F3AE9001798D0 /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = "<group>"; };
+		DAB53021244F3AE9001798D0 /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = "<group>"; };
+		DAB53022244F3AE9001798D0 /* BasicStruct.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = BasicStruct.metal; sourceTree = "<group>"; };
+		DAB53023244F3AE9001798D0 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
+		DAB53024244F3AE9001798D0 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		DAB53026244F3AE9001798D0 /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture.jpg; sourceTree = "<group>"; };
+		DAB53027244F3AE9001798D0 /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
+		DAB53028244F3AE9001798D0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAB52FE8244F3A58001798D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB52FFE244F3A59001798D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB53009244F3A59001798D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAB52FE2244F3A58001798D0 = {
+			isa = PBXGroup;
+			children = (
+				DAB52FED244F3A58001798D0 /* Light_Caster */,
+				DAB53004244F3A59001798D0 /* Light_CasterTests */,
+				DAB5300F244F3A59001798D0 /* Light_CasterUITests */,
+				DAB52FEC244F3A58001798D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAB52FEC244F3A58001798D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAB52FEB244F3A58001798D0 /* Light_Caster.app */,
+				DAB53001244F3A59001798D0 /* Light_CasterTests.xctest */,
+				DAB5300C244F3A59001798D0 /* Light_CasterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAB52FED244F3A58001798D0 /* Light_Caster */ = {
+			isa = PBXGroup;
+			children = (
+				DAB53026244F3AE9001798D0 /* texture.jpg */,
+				DAB53027244F3AE9001798D0 /* wall.jpg */,
+				DAB53022244F3AE9001798D0 /* BasicStruct.metal */,
+				DAB53023244F3AE9001798D0 /* Lighting.metal */,
+				DAB52FFC244F3A59001798D0 /* Info.plist */,
+				DAB53021244F3AE9001798D0 /* container2_specular.png */,
+				DAB53020244F3AE9001798D0 /* container2.png */,
+				DAB52FEE244F3A58001798D0 /* AppDelegate.swift */,
+				DAB5301E244F3AE9001798D0 /* Camera.swift */,
+				DAB5301F244F3AE9001798D0 /* Matrix.swift */,
+				DAB53028244F3AE9001798D0 /* Model.swift */,
+				DAB53024244F3AE9001798D0 /* Renderer.swift */,
+				DAB52FF0244F3A58001798D0 /* SceneDelegate.swift */,
+				DAB52FF2244F3A58001798D0 /* ViewController.swift */,
+				DAB52FF7244F3A59001798D0 /* Assets.xcassets */,
+				DAB52FF4244F3A58001798D0 /* Main.storyboard */,
+			);
+			path = Light_Caster;
+			sourceTree = "<group>";
+		};
+		DAB53004244F3A59001798D0 /* Light_CasterTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAB53005244F3A59001798D0 /* Light_CasterTests.swift */,
+				DAB53007244F3A59001798D0 /* Info.plist */,
+			);
+			path = Light_CasterTests;
+			sourceTree = "<group>";
+		};
+		DAB5300F244F3A59001798D0 /* Light_CasterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DAB53010244F3A59001798D0 /* Light_CasterUITests.swift */,
+				DAB53012244F3A59001798D0 /* Info.plist */,
+			);
+			path = Light_CasterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAB52FEA244F3A58001798D0 /* Light_Caster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB53015244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_Caster" */;
+			buildPhases = (
+				DAB52FE7244F3A58001798D0 /* Sources */,
+				DAB52FE8244F3A58001798D0 /* Frameworks */,
+				DAB52FE9244F3A58001798D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Light_Caster;
+			productName = Light_Caster;
+			productReference = DAB52FEB244F3A58001798D0 /* Light_Caster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAB53000244F3A59001798D0 /* Light_CasterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB53018244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_CasterTests" */;
+			buildPhases = (
+				DAB52FFD244F3A59001798D0 /* Sources */,
+				DAB52FFE244F3A59001798D0 /* Frameworks */,
+				DAB52FFF244F3A59001798D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB53003244F3A59001798D0 /* PBXTargetDependency */,
+			);
+			name = Light_CasterTests;
+			productName = Light_CasterTests;
+			productReference = DAB53001244F3A59001798D0 /* Light_CasterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DAB5300B244F3A59001798D0 /* Light_CasterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB5301B244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_CasterUITests" */;
+			buildPhases = (
+				DAB53008244F3A59001798D0 /* Sources */,
+				DAB53009244F3A59001798D0 /* Frameworks */,
+				DAB5300A244F3A59001798D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB5300E244F3A59001798D0 /* PBXTargetDependency */,
+			);
+			name = Light_CasterUITests;
+			productName = Light_CasterUITests;
+			productReference = DAB5300C244F3A59001798D0 /* Light_CasterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAB52FE3244F3A58001798D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Hao Zhou";
+				TargetAttributes = {
+					DAB52FEA244F3A58001798D0 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					DAB53000244F3A59001798D0 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = DAB52FEA244F3A58001798D0;
+					};
+					DAB5300B244F3A59001798D0 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = DAB52FEA244F3A58001798D0;
+					};
+				};
+			};
+			buildConfigurationList = DAB52FE6244F3A58001798D0 /* Build configuration list for PBXProject "Light_Caster" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAB52FE2244F3A58001798D0;
+			productRefGroup = DAB52FEC244F3A58001798D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAB52FEA244F3A58001798D0 /* Light_Caster */,
+				DAB53000244F3A59001798D0 /* Light_CasterTests */,
+				DAB5300B244F3A59001798D0 /* Light_CasterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAB52FE9244F3A58001798D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB5302C244F3AE9001798D0 /* container2_specular.png in Resources */,
+				DAB52FF8244F3A59001798D0 /* Assets.xcassets in Resources */,
+				DAB53031244F3AE9001798D0 /* texture.jpg in Resources */,
+				DAB5302B244F3AE9001798D0 /* container2.png in Resources */,
+				DAB52FF6244F3A58001798D0 /* Main.storyboard in Resources */,
+				DAB53032244F3AE9001798D0 /* wall.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB52FFF244F3A59001798D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB5300A244F3A59001798D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAB52FE7244F3A58001798D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB5302F244F3AE9001798D0 /* Renderer.swift in Sources */,
+				DAB53029244F3AE9001798D0 /* Camera.swift in Sources */,
+				DAB5302A244F3AE9001798D0 /* Matrix.swift in Sources */,
+				DAB5302E244F3AE9001798D0 /* Lighting.metal in Sources */,
+				DAB53033244F3AEA001798D0 /* Model.swift in Sources */,
+				DAB52FF3244F3A58001798D0 /* ViewController.swift in Sources */,
+				DAB5302D244F3AE9001798D0 /* BasicStruct.metal in Sources */,
+				DAB52FEF244F3A58001798D0 /* AppDelegate.swift in Sources */,
+				DAB52FF1244F3A58001798D0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB52FFD244F3A59001798D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB53006244F3A59001798D0 /* Light_CasterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB53008244F3A59001798D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB53011244F3A59001798D0 /* Light_CasterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAB53003244F3A59001798D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB52FEA244F3A58001798D0 /* Light_Caster */;
+			targetProxy = DAB53002244F3A59001798D0 /* PBXContainerItemProxy */;
+		};
+		DAB5300E244F3A59001798D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB52FEA244F3A58001798D0 /* Light_Caster */;
+			targetProxy = DAB5300D244F3A59001798D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAB52FF4244F3A58001798D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAB52FF5244F3A58001798D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAB53013244F3A59001798D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DAB53014244F3A59001798D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAB53016244F3A59001798D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_Caster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-Caster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAB53017244F3A59001798D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_Caster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-Caster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DAB53019244F3A59001798D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_CasterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-CasterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light_Caster.app/Light_Caster";
+			};
+			name = Debug;
+		};
+		DAB5301A244F3A59001798D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_CasterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-CasterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light_Caster.app/Light_Caster";
+			};
+			name = Release;
+		};
+		DAB5301C244F3A59001798D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_CasterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-CasterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Light_Caster;
+			};
+			name = Debug;
+		};
+		DAB5301D244F3A59001798D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = Light_CasterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.Light-CasterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Light_Caster;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAB52FE6244F3A58001798D0 /* Build configuration list for PBXProject "Light_Caster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB53013244F3A59001798D0 /* Debug */,
+				DAB53014244F3A59001798D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB53015244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_Caster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB53016244F3A59001798D0 /* Debug */,
+				DAB53017244F3A59001798D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB53018244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_CasterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB53019244F3A59001798D0 /* Debug */,
+				DAB5301A244F3A59001798D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB5301B244F3A59001798D0 /* Build configuration list for PBXNativeTarget "Light_CasterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB5301C244F3A59001798D0 /* Debug */,
+				DAB5301D244F3A59001798D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAB52FE3244F3A58001798D0 /* Project object */;
+}

@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA0118B32439916F00B76750 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA0118B22439916F00B76750 /* Lighting.metal */; };
+		DA653FA22438B9BC00327533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FA12438B9BC00327533 /* AppDelegate.swift */; };
+		DA653FA42438B9BC00327533 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FA32438B9BC00327533 /* SceneDelegate.swift */; };
+		DA653FA62438B9BC00327533 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FA52438B9BC00327533 /* ViewController.swift */; };
+		DA653FA92438B9BC00327533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA653FA72438B9BC00327533 /* Main.storyboard */; };
+		DA653FAB2438B9BC00327533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA653FAA2438B9BC00327533 /* Assets.xcassets */; };
+		DA653FAE2438B9BC00327533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA653FAC2438B9BC00327533 /* LaunchScreen.storyboard */; };
+		DA653FB92438B9BD00327533 /* CH_11_TeaPotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FB82438B9BD00327533 /* CH_11_TeaPotTests.swift */; };
+		DA653FC42438B9BD00327533 /* CH_11_TeaPotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FC32438B9BD00327533 /* CH_11_TeaPotUITests.swift */; };
+		DA653FD32438D5FA00327533 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA653FD22438D5FA00327533 /* Matrix.swift */; };
+		DA653FD52438D61F00327533 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA653FD42438D61F00327533 /* Shader.metal */; };
+		DA653FD72438DA4600327533 /* wt_teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA653FD62438DA4600327533 /* wt_teapot.obj */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA653FB52438B9BD00327533 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA653F962438B9BC00327533 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA653F9D2438B9BC00327533;
+			remoteInfo = CH_11_TeaPot;
+		};
+		DA653FC02438B9BD00327533 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA653F962438B9BC00327533 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA653F9D2438B9BC00327533;
+			remoteInfo = CH_11_TeaPot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA0118B22439916F00B76750 /* Lighting.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
+		DA653F9E2438B9BC00327533 /* CH_11_TeaPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CH_11_TeaPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA653FA12438B9BC00327533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA653FA32438B9BC00327533 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DA653FA52438B9BC00327533 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA653FA82438B9BC00327533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA653FAA2438B9BC00327533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA653FAD2438B9BC00327533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA653FAF2438B9BC00327533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA653FB42438B9BD00327533 /* CH_11_TeaPotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CH_11_TeaPotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA653FB82438B9BD00327533 /* CH_11_TeaPotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH_11_TeaPotTests.swift; sourceTree = "<group>"; };
+		DA653FBA2438B9BD00327533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA653FBF2438B9BD00327533 /* CH_11_TeaPotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CH_11_TeaPotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA653FC32438B9BD00327533 /* CH_11_TeaPotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH_11_TeaPotUITests.swift; sourceTree = "<group>"; };
+		DA653FC52438B9BD00327533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA653FD12438D58800327533 /* CH_11_TeaPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CH_11_TeaPot.entitlements; sourceTree = "<group>"; };
+		DA653FD22438D5FA00327533 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		DA653FD42438D61F00327533 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		DA653FD62438DA4600327533 /* wt_teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wt_teapot.obj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA653F9B2438B9BC00327533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FB12438B9BD00327533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FBC2438B9BD00327533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA653F952438B9BC00327533 = {
+			isa = PBXGroup;
+			children = (
+				DA653FA02438B9BC00327533 /* CH_11_TeaPot */,
+				DA653FB72438B9BD00327533 /* CH_11_TeaPotTests */,
+				DA653FC22438B9BD00327533 /* CH_11_TeaPotUITests */,
+				DA653F9F2438B9BC00327533 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA653F9F2438B9BC00327533 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA653F9E2438B9BC00327533 /* CH_11_TeaPot.app */,
+				DA653FB42438B9BD00327533 /* CH_11_TeaPotTests.xctest */,
+				DA653FBF2438B9BD00327533 /* CH_11_TeaPotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA653FA02438B9BC00327533 /* CH_11_TeaPot */ = {
+			isa = PBXGroup;
+			children = (
+				DA653FD62438DA4600327533 /* wt_teapot.obj */,
+				DA653FD12438D58800327533 /* CH_11_TeaPot.entitlements */,
+				DA653FA12438B9BC00327533 /* AppDelegate.swift */,
+				DA653FA32438B9BC00327533 /* SceneDelegate.swift */,
+				DA653FA52438B9BC00327533 /* ViewController.swift */,
+				DA653FA72438B9BC00327533 /* Main.storyboard */,
+				DA653FAA2438B9BC00327533 /* Assets.xcassets */,
+				DA653FAC2438B9BC00327533 /* LaunchScreen.storyboard */,
+				DA653FAF2438B9BC00327533 /* Info.plist */,
+				DA653FD22438D5FA00327533 /* Matrix.swift */,
+				DA653FD42438D61F00327533 /* Shader.metal */,
+				DA0118B22439916F00B76750 /* Lighting.metal */,
+			);
+			path = CH_11_TeaPot;
+			sourceTree = "<group>";
+		};
+		DA653FB72438B9BD00327533 /* CH_11_TeaPotTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA653FB82438B9BD00327533 /* CH_11_TeaPotTests.swift */,
+				DA653FBA2438B9BD00327533 /* Info.plist */,
+			);
+			path = CH_11_TeaPotTests;
+			sourceTree = "<group>";
+		};
+		DA653FC22438B9BD00327533 /* CH_11_TeaPotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA653FC32438B9BD00327533 /* CH_11_TeaPotUITests.swift */,
+				DA653FC52438B9BD00327533 /* Info.plist */,
+			);
+			path = CH_11_TeaPotUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA653F9D2438B9BC00327533 /* CH_11_TeaPot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA653FC82438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPot" */;
+			buildPhases = (
+				DA653F9A2438B9BC00327533 /* Sources */,
+				DA653F9B2438B9BC00327533 /* Frameworks */,
+				DA653F9C2438B9BC00327533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CH_11_TeaPot;
+			productName = CH_11_TeaPot;
+			productReference = DA653F9E2438B9BC00327533 /* CH_11_TeaPot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA653FB32438B9BD00327533 /* CH_11_TeaPotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA653FCB2438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPotTests" */;
+			buildPhases = (
+				DA653FB02438B9BD00327533 /* Sources */,
+				DA653FB12438B9BD00327533 /* Frameworks */,
+				DA653FB22438B9BD00327533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA653FB62438B9BD00327533 /* PBXTargetDependency */,
+			);
+			name = CH_11_TeaPotTests;
+			productName = CH_11_TeaPotTests;
+			productReference = DA653FB42438B9BD00327533 /* CH_11_TeaPotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA653FBE2438B9BD00327533 /* CH_11_TeaPotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA653FCE2438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPotUITests" */;
+			buildPhases = (
+				DA653FBB2438B9BD00327533 /* Sources */,
+				DA653FBC2438B9BD00327533 /* Frameworks */,
+				DA653FBD2438B9BD00327533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA653FC12438B9BD00327533 /* PBXTargetDependency */,
+			);
+			name = CH_11_TeaPotUITests;
+			productName = CH_11_TeaPotUITests;
+			productReference = DA653FBF2438B9BD00327533 /* CH_11_TeaPotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA653F962438B9BC00327533 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Hao Zhou";
+				TargetAttributes = {
+					DA653F9D2438B9BC00327533 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					DA653FB32438B9BD00327533 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = DA653F9D2438B9BC00327533;
+					};
+					DA653FBE2438B9BD00327533 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = DA653F9D2438B9BC00327533;
+					};
+				};
+			};
+			buildConfigurationList = DA653F992438B9BC00327533 /* Build configuration list for PBXProject "CH_11_TeaPot" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA653F952438B9BC00327533;
+			productRefGroup = DA653F9F2438B9BC00327533 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA653F9D2438B9BC00327533 /* CH_11_TeaPot */,
+				DA653FB32438B9BD00327533 /* CH_11_TeaPotTests */,
+				DA653FBE2438B9BD00327533 /* CH_11_TeaPotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA653F9C2438B9BC00327533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA653FAE2438B9BC00327533 /* LaunchScreen.storyboard in Resources */,
+				DA653FD72438DA4600327533 /* wt_teapot.obj in Resources */,
+				DA653FAB2438B9BC00327533 /* Assets.xcassets in Resources */,
+				DA653FA92438B9BC00327533 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FB22438B9BD00327533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FBD2438B9BD00327533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA653F9A2438B9BC00327533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA653FD32438D5FA00327533 /* Matrix.swift in Sources */,
+				DA653FA62438B9BC00327533 /* ViewController.swift in Sources */,
+				DA653FA22438B9BC00327533 /* AppDelegate.swift in Sources */,
+				DA0118B32439916F00B76750 /* Lighting.metal in Sources */,
+				DA653FD52438D61F00327533 /* Shader.metal in Sources */,
+				DA653FA42438B9BC00327533 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FB02438B9BD00327533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA653FB92438B9BD00327533 /* CH_11_TeaPotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA653FBB2438B9BD00327533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA653FC42438B9BD00327533 /* CH_11_TeaPotUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA653FB62438B9BD00327533 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA653F9D2438B9BC00327533 /* CH_11_TeaPot */;
+			targetProxy = DA653FB52438B9BD00327533 /* PBXContainerItemProxy */;
+		};
+		DA653FC12438B9BD00327533 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA653F9D2438B9BC00327533 /* CH_11_TeaPot */;
+			targetProxy = DA653FC02438B9BD00327533 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA653FA72438B9BC00327533 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA653FA82438B9BC00327533 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA653FAC2438B9BC00327533 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA653FAD2438B9BC00327533 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA653FC62438B9BD00327533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA653FC72438B9BD00327533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA653FC92438B9BD00327533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CH_11_TeaPot/CH_11_TeaPot.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPot";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA653FCA2438B9BD00327533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CH_11_TeaPot/CH_11_TeaPot.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPot";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DA653FCC2438B9BD00327533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPotTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CH_11_TeaPot.app/CH_11_TeaPot";
+			};
+			name = Debug;
+		};
+		DA653FCD2438B9BD00327533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPotTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CH_11_TeaPot.app/CH_11_TeaPot";
+			};
+			name = Release;
+		};
+		DA653FCF2438B9BD00327533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPotUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CH_11_TeaPot;
+			};
+			name = Debug;
+		};
+		DA653FD02438B9BD00327533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = CH_11_TeaPotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LearnMetal.CH-11-TeaPotUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CH_11_TeaPot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA653F992438B9BC00327533 /* Build configuration list for PBXProject "CH_11_TeaPot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA653FC62438B9BD00327533 /* Debug */,
+				DA653FC72438B9BD00327533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA653FC82438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA653FC92438B9BD00327533 /* Debug */,
+				DA653FCA2438B9BD00327533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA653FCB2438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA653FCC2438B9BD00327533 /* Debug */,
+				DA653FCD2438B9BD00327533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA653FCE2438B9BD00327533 /* Build configuration list for PBXNativeTarget "CH_11_TeaPotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA653FCF2438B9BD00327533 /* Debug */,
+				DA653FD02438B9BD00327533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA653F962438B9BC00327533 /* Project object */;
+}
