@@ -76,8 +76,6 @@ class Renderer: NSObject, MTKViewDelegate {
     var depthState: MTLDepthStencilState! = nil
     var drawState: MTLDepthStencilState! = nil
     var stencilState: MTLDepthStencilState! = nil
-    var grassState: MTLDepthStencilState! = nil
-    
     var pipelineState: MTLRenderPipelineState! = nil
     var stencilPipelineState: MTLRenderPipelineState! = nil
     
@@ -94,8 +92,8 @@ class Renderer: NSObject, MTKViewDelegate {
     var grassTexture: MTLTexture! = nil
     var grassPipelineState: MTLRenderPipelineState! = nil
     var grassDescriptor: MTLVertexDescriptor! = nil
+    var grassState: MTLDepthStencilState! = nil
     var grassVertexDataSize: Int = 0
-    
     let grassVertexData = [
         VertexTex(position: [-0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  1.0, 0.0, 0.0]),
         VertexTex(position: [-0.5, 0.5,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  0, 0.0, 0.0]),
@@ -103,6 +101,22 @@ class Renderer: NSObject, MTKViewDelegate {
 
         VertexTex(position: [-0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  1.0, 0.0, 0.0]),
         VertexTex(position: [0.5, 0.5,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [1.0,  0, 0.0, 0.0]),
+        VertexTex(position: [0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [1.0,  1.0, 0.0, 0.0]),
+    ]
+    
+    var windowVertexBuffer: MTLBuffer! = nil
+    var windowTexture: MTLTexture! = nil
+    var windowPipelineState: MTLRenderPipelineState! = nil
+    var windowDescriptor: MTLVertexDescriptor! = nil
+    var windowState: MTLDepthStencilState! = nil
+    var windowVertexDataSize: Int = 0
+    let windowVertexData = [
+        VertexTex(position: [-0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  1.0, 0.0, 0.0]),
+        VertexTex(position: [-0.5, 0,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  0, 0.0, 0.0]),
+        VertexTex(position: [0.5, 0,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [1.0,  0, 0.0, 0.0]),
+
+        VertexTex(position: [-0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [0.0,  1.0, 0.0, 0.0]),
+        VertexTex(position: [0.5, 0,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [1.0,  0, 0.0, 0.0]),
         VertexTex(position: [0.5,  1,  0, 1.0],  normal: [0.0, 0.0, -1.0, 0.0], texCoord: [1.0,  1.0, 0.0, 0.0]),
     ]
     
@@ -114,6 +128,7 @@ class Renderer: NSObject, MTKViewDelegate {
         CreateCubeShaders(metalKitView: metalKitView)
         CreateOutlineShaders(metalKitView: metalKitView)
         CreateGrassBufferAndShader(metalKitView: metalKitView)
+        CreateWindowBufferAndShader(metalKitView: metalKitView)
         SetTexture()
         UpdateLight()
     }
@@ -157,16 +172,6 @@ class Renderer: NSObject, MTKViewDelegate {
         depthStateDesciptor.isDepthWriteEnabled = false
         
         stencilState = device.makeDepthStencilState(descriptor: depthStateDesciptor)
-        
-
-        depthStateDesciptor = MTLDepthStencilDescriptor()
-        depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
-        depthStateDesciptor.isDepthWriteEnabled = false
-             
-        grassState = device.makeDepthStencilState(descriptor: depthStateDesciptor)
-        
-        
-        
     }
     
     func CreateBuffers(){
@@ -247,6 +252,12 @@ class Renderer: NSObject, MTKViewDelegate {
         grassVertexDataSize = grassVertexData.count * MemoryLayout.size(ofValue: grassVertexData[0])
         grassVertexBuffer = device.makeBuffer(bytes: grassVertexData, length: grassVertexDataSize, options: [])
         grassVertexBuffer.label = "vert"
+        
+        var depthStateDesciptor = MTLDepthStencilDescriptor()
+        depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
+        depthStateDesciptor.isDepthWriteEnabled = false
+             
+        grassState = device.makeDepthStencilState(descriptor: depthStateDesciptor)
 
         let path = Bundle.main.path(forResource: "grass", ofType: "png")
         let textureLoader = MTKTextureLoader(device: device!)
@@ -271,7 +282,51 @@ class Renderer: NSObject, MTKViewDelegate {
             print("Failed to create pipeline state, error \(error)")
         }
     }
+    func CreateWindowBufferAndShader(metalKitView: MTKView){
+        windowVertexDataSize = windowVertexData.count * MemoryLayout.size(ofValue: windowVertexData[0])
+        windowVertexBuffer = device.makeBuffer(bytes: windowVertexData, length: windowVertexDataSize, options: [])
+        windowVertexBuffer.label = "vert"
+        
+        var depthStateDesciptor = MTLDepthStencilDescriptor()
+        depthStateDesciptor.depthCompareFunction = MTLCompareFunction.always
+        depthStateDesciptor.isDepthWriteEnabled = false
+             
+        windowState = device.makeDepthStencilState(descriptor: depthStateDesciptor)
 
+        let path = Bundle.main.path(forResource: "window", ofType: "png")
+        let textureLoader = MTKTextureLoader(device: device!)
+        let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
+        windowTexture = try! textureLoader.newTexture(URL: URL(fileURLWithPath: path!), options: textureLoaderOptions)
+        
+        let defaultLibrary = device.makeDefaultLibrary() //else {return}
+        let vertexProgram = defaultLibrary?.makeFunction(name: "vertex_window") //else {return}
+        let fragementProgram = defaultLibrary?.makeFunction(name: "fragment_window") //else {return}
+        let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        pipelineStateDescriptor.vertexFunction = vertexProgram
+        pipelineStateDescriptor.fragmentFunction = fragementProgram
+        pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = true
+        pipelineStateDescriptor.colorAttachments[0].rgbBlendOperation = .add
+        pipelineStateDescriptor.colorAttachments[0].alphaBlendOperation = .add
+        
+        pipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = .one
+        pipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .sourceAlpha
+        
+        pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
+        pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
+
+        pipelineStateDescriptor.vertexDescriptor = vertexDescriptor
+        pipelineStateDescriptor.sampleCount = 1
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineStateDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
+        pipelineStateDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
+        do {
+            try windowPipelineState = device?.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
+        } catch let error{
+            print("Failed to create pipeline state, error \(error)")
+        }
+    }
+
+    
     
     func UpdateLight(){
         let lightColor = SIMD4<Float>(1.0, 0.47, 0.18, 1.0)
@@ -330,6 +385,7 @@ class Renderer: NSObject, MTKViewDelegate {
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable?.texture
                 renderPassDescriptor.colorAttachments[0].loadAction = .clear
                 renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
+
                 
                 let depthDesc = MTLTextureDescriptor()
                 depthDesc.usage =  [MTLTextureUsage.shaderRead , MTLTextureUsage.renderTarget]
@@ -394,6 +450,14 @@ class Renderer: NSObject, MTKViewDelegate {
                 commandEncoder.setCullMode(MTLCullMode.back)
                 commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: grassVertexData.count, instanceCount: 1)
                 
+                
+                commandEncoder.setVertexBuffer(windowVertexBuffer, offset: 0, index: 0)
+                commandEncoder.setFragmentTexture(windowTexture, index: 0)
+                commandEncoder.setFragmentSamplerState(sampleState, index: 0)
+                commandEncoder.setRenderPipelineState(windowPipelineState)
+                commandEncoder.setDepthStencilState(windowState)
+                commandEncoder.setCullMode(MTLCullMode.back)
+                commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: grassVertexData.count, instanceCount: 1)
                 // */
                 commandEncoder.endEncoding()
                 commandBuffer.present(currentDrawable!)

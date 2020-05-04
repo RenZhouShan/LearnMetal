@@ -28,6 +28,8 @@
 		DA32C84A24601CDC00F3D514 /* container2.png in Resources */ = {isa = PBXBuildFile; fileRef = DA32C84924601CDC00F3D514 /* container2.png */; };
 		DA32C84C2460220800F3D514 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = DA32C84B2460220800F3D514 /* grass.png */; };
 		DA32C84E24602D9200F3D514 /* grass.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA32C84D24602D9200F3D514 /* grass.metal */; };
+		DA36BDDB24604AB00005BB48 /* window.png in Resources */ = {isa = PBXBuildFile; fileRef = DA36BDDA24604AB00005BB48 /* window.png */; };
+		DA36BDDD24604D670005BB48 /* Window.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA36BDDC24604D670005BB48 /* Window.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		DA32C84924601CDC00F3D514 /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = "<group>"; };
 		DA32C84B2460220800F3D514 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
 		DA32C84D24602D9200F3D514 /* grass.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = grass.metal; sourceTree = "<group>"; };
+		DA36BDDA24604AB00005BB48 /* window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = window.png; sourceTree = "<group>"; };
+		DA36BDDC24604D670005BB48 /* Window.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Window.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +133,13 @@
 				DA32C83D24601C9700F3D514 /* BasicStruct.metal */,
 				DA32C83824601C9700F3D514 /* Lighting.metal */,
 				DA32C83624601C9700F3D514 /* Stencil.metal */,
+				DA36BDDC24604D670005BB48 /* Window.metal */,
 				DA32C84D24602D9200F3D514 /* grass.metal */,
 				DA32C84B2460220800F3D514 /* grass.png */,
 				DA32C84924601CDC00F3D514 /* container2.png */,
 				DA32C83A24601C9700F3D514 /* Camera.swift */,
 				DA32C83C24601C9700F3D514 /* container2_specular.png */,
+				DA36BDDA24604AB00005BB48 /* window.png */,
 				DA32C83924601C9700F3D514 /* Matrix.swift */,
 				DA32C83B24601C9700F3D514 /* Model.swift */,
 				DA32C83E24601C9700F3D514 /* texture.jpg */,
@@ -277,6 +283,7 @@
 				DA32C80F24601AA100F3D514 /* Assets.xcassets in Resources */,
 				DA32C84C2460220800F3D514 /* grass.png in Resources */,
 				DA32C84824601C9700F3D514 /* texture.jpg in Resources */,
+				DA36BDDB24604AB00005BB48 /* window.png in Resources */,
 				DA32C80D24601AA000F3D514 /* Main.storyboard in Resources */,
 				DA32C84124601C9700F3D514 /* wall.jpg in Resources */,
 			);
@@ -312,6 +319,7 @@
 				DA32C84E24602D9200F3D514 /* grass.metal in Sources */,
 				DA32C84224601C9700F3D514 /* Lighting.metal in Sources */,
 				DA32C84724601C9700F3D514 /* BasicStruct.metal in Sources */,
+				DA36BDDD24604D670005BB48 /* Window.metal in Sources */,
 				DA32C80824601AA000F3D514 /* SceneDelegate.swift in Sources */,
 				DA32C84024601C9700F3D514 /* Stencil.metal in Sources */,
 			);
