@@ -43,7 +43,8 @@ vertex VertexOut lightingVertex(VertexIn vertexIn [[stage_in]],
     float4 s = normalize(uniforms.lightPosition - eyeCoords);
     
     outVertex.lightIntensity = float4(uniforms.intensity, 1.0) * float4(uniforms.reflectivity, 1.0) * max( dot(s, tnorm), 0.0);
-    outVertex.position = uniforms.projectionMatrix * uniforms.modelViewMatrix * position;
+    outVertex.position = //uniforms.projectionMatrix * uniforms.modelViewMatrix *
+    position;
     
     return outVertex;
 };
