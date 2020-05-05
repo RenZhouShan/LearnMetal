@@ -26,13 +26,13 @@ class Renderer: NSObject, MTKViewDelegate {
     var vertexDescriptor: MTLVertexDescriptor! = nil
     var stencilDescriptor: MTLVertexDescriptor! = nil
     
-    var diffuseTexture: MTLTexture! = nil
-    var specularTexture: MTLTexture! = nil
+    var moduleTexture: [MTLTexture]!
     var sampleState: MTLSamplerState! = nil
     
     
     var pipelineState: MTLRenderPipelineState! = nil
     var stencilPipelineState: MTLRenderPipelineState! = nil
+    var depthStencilState: MTLDepthStencilState! = nil
     
     var commandQueue: MTLCommandQueue! = nil
     
@@ -41,16 +41,18 @@ class Renderer: NSObject, MTKViewDelegate {
     var aspect: Float = 0.0
     var scaleOffset: Float = 1.0
     var scale: Float = 1.0
-    var meshes: [MTKMesh]!
+    var models: [Model] = []
+    //let texturePaths = []
 
     
     
     init?(metalKitView: MTKView){
         super.init()
         InitDevice(metalKitView: metalKitView)
+        InitDepthStencil(metalKitView: metalKitView)
         CreateBuffers()
         CreateCubeShaders(metalKitView: metalKitView)
-       // SetTexture()
+        SetTextures()
         UpdateLight()
     }
     
@@ -62,7 +64,14 @@ class Renderer: NSObject, MTKViewDelegate {
         commandQueue = device!.makeCommandQueue()
     }
     
-   
+
+   func InitDepthStencil(metalKitView: MTKView){
+       var depthStateDesciptor = MTLDepthStencilDescriptor()
+       depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
+       depthStateDesciptor.isDepthWriteEnabled = true
+       
+       depthStencilState = device!.makeDepthStencilState(descriptor: depthStateDesciptor)
+    }
     func CreateCubeShaders(metalKitView: MTKView){
         let defaultLibrary = device.makeDefaultLibrary() //else {return}
         let vertexProgram = defaultLibrary?.makeFunction(name: "vertex_model") //else {return}
@@ -70,13 +79,20 @@ class Renderer: NSObject, MTKViewDelegate {
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragementProgram
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineStateDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
+        pipelineStateDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
                 
         vertexDescriptor = MTLVertexDescriptor()
         vertexDescriptor.attributes[0].offset = 0
         vertexDescriptor.attributes[0].format = MTLVertexFormat.float3
         vertexDescriptor.attributes[1].offset = 12
         vertexDescriptor.attributes[1].format = MTLVertexFormat.float3
-        vertexDescriptor.layouts[0].stride = 24
+        vertexDescriptor.attributes[2].offset = 24
+        vertexDescriptor.attributes[2].format = MTLVertexFormat.float2
+        vertexDescriptor.attributes[3].offset = 32
+        vertexDescriptor.attributes[3].format = MTLVertexFormat.float2
+        vertexDescriptor.layouts[0].stride = 40
         
         let desc = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         var attribute = desc.attributes[0] as! MDLVertexAttribute
@@ -84,27 +100,28 @@ class Renderer: NSObject, MTKViewDelegate {
         attribute = desc.attributes[1] as! MDLVertexAttribute
         attribute.name = MDLVertexAttributeNormal
         
-        let mtkBufferAllocator = MTKMeshBufferAllocator(device: device)
-        //let url = Bundle.main.url(forResource: "nanosuit", withExtension: "obj")
-        let url = Bundle.main.url(forResource: "teapot", withExtension: "obj")
-        let asset = MDLAsset(url: url!, vertexDescriptor: desc, bufferAllocator: mtkBufferAllocator)
-        do{
-            (_, meshes) = try MTKMesh.newMeshes(asset: asset, device: device)
-        }
-        catch let error{
-            fatalError("\(error)")
-        }
-       
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm //view.colorPixelFormat
-        pipelineStateDescriptor.sampleCount = 1//4//view.sampleCount
-        pipelineStateDescriptor.vertexDescriptor = vertexDescriptor
-        
-        do {
-            try metalPipeline = device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
-            //device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
-        } catch let error{
-            print("Failed to create pipeline state, error \(error)")
-        }
+        let model = Model.init(name: "nanosuit", device: device, mdlVertexDescriptor: desc)
+        models.append(model)
+    }
+    func SetTextures(){
+        let samplerDescriptor = MTLSamplerDescriptor()
+        samplerDescriptor.minFilter = .linear
+        samplerDescriptor.magFilter = .linear
+        sampleState = device?.makeSamplerState(descriptor: samplerDescriptor)
+        /*
+        let textureLoader = MTKTextureLoader(device: device!)
+        let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
+
+        let mesh = (meshes?.first)!
+        let count = mesh.submeshes.count
+        for i in 0 ..< count{
+            var name = mesh.submeshes[i].name
+            var name1 = mesh.submeshes[1].name
+            var name2 = mesh.submeshes[2].name
+            var name3 = mesh.submeshes[3].name
+            let path = Bundle.main.path(forResource: "container2", ofType: "png")
+            moduleTexture[i] = try! textureLoader.newTexture(URL: URL(fileURLWithPath: path!), options: textureLoaderOptions)
+        }*/
     }
     func UpdateLight(){
         let lightColor = SIMD4<Float>(1.0, 0.47, 0.18, 1.0)
@@ -126,16 +143,18 @@ class Renderer: NSObject, MTKViewDelegate {
         lightBuffer = device.makeBuffer(length: MemoryLayout<Light>.size, options: [])
         memcpy(lightBuffer.contents(), lightse, MemoryLayout<Light>.size)
     }
+    
     func UpdateUniformBuffer(){
         // Matrix Uniforms
-        rotationAngle += 1 / 10 * Float(10) / 4
+        rotationAngle += 1 / 2 * Float(10) / 4
         let cameraPos = SIMD4<Float>(0, 0, 3, 1)
         let targetPos = SIMD4<Float>(0.0, 0, -1.5, 1)
         let lookUp = SIMD4<Float>(0.0, 1.0, 0, 0)
         let cameraView = Matrix4x4.cameraView(cameraPos, targetPos, lookUp)
         scaleOffset += 0.005
+        scale = 0.3
         //scale = sin(scaleOffset) + 1
-        let modelMatrices = ModelMatrices.init(SIMD3<Float>(0,0,-4.5), SIMD3<Float>(rotationAngle,rotationAngle,rotationAngle), SIMD3<Float>(scale,scale,scale))
+        let modelMatrices = ModelMatrices.init(SIMD3<Float>(0,-3,-10), SIMD3<Float>(0,rotationAngle,0), SIMD3<Float>(scale,scale,scale))
         let rotateXMatrix = modelMatrices.rotateX//Matrix4x4.rotateXMatrix(byAngle: 1)
         let rotateYMatrix = modelMatrices.rotateY//Matrix4x4.rotateYMatrix(byAngle: 1)
         let rotateZMatrix = modelMatrices.rotateZ//Matrix4x4.rotateZMatrix(byAngle: rotationAngle)
@@ -164,25 +183,36 @@ class Renderer: NSObject, MTKViewDelegate {
                 renderPassDescriptor.colorAttachments[0].loadAction = .clear
                 renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
                 
-                
+                let depthDesc = MTLTextureDescriptor()
+                depthDesc.usage =  [MTLTextureUsage.shaderRead , MTLTextureUsage.renderTarget]
+                depthDesc.textureType = .type2D
+                depthDesc.storageMode = .private
                 
                 UpdateUniformBuffer()
                 //CreateOutlineShaders(metalKitView: view)
-                let mesh = (meshes?.first)!
-                let vertexBuffer = mesh.vertexBuffers[0]
-                commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 0)
-                commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
                 
-                commandEncoder.setFragmentBuffer(lightBuffer, offset: 0, index: 0);
-                commandEncoder.setRenderPipelineState(metalPipeline)
-                commandEncoder.setCullMode(MTLCullMode.back)
-                let submesh = mesh.submeshes.first!
-                commandEncoder.drawIndexedPrimitives(type: submesh.primitiveType, indexCount: submesh.indexCount, indexType: submesh.indexType, indexBuffer: submesh.indexBuffer.buffer, indexBufferOffset: submesh.indexBuffer.offset)
-                    //device.makeTexture(descriptor: depthDesc)
+                commandEncoder.setStencilReferenceValue(1)
+                for model in models {
+                    commandEncoder.setVertexBuffer(model.vertexBuffer, offset: 0, index: 0)
+                    commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
+                    commandEncoder.setFragmentBuffer(lightBuffer, offset: 0, index: 0);
+                    commandEncoder.setFragmentSamplerState(sampleState, index: 0)
+                    var index = 0
+                    for modelSubmesh in model.submeshes {
+                        let submesh = modelSubmesh.submesh
 
-                //renderPassDescriptor.stencilAttachment.texture = renderPassDescriptor.depthAttachment.texture
-
-                commandEncoder.popDebugGroup()
+                        commandEncoder.setRenderPipelineState(model.pipelineState)
+                        commandEncoder.setCullMode(MTLCullMode.back)
+                       // commandEncoder.setDepthStencilState(depthStencilState)
+                        commandEncoder.setFragmentTexture(modelSubmesh.textures.baseColor, index: 0)
+                        commandEncoder.drawIndexedPrimitives(type: .triangle,
+                                                            indexCount: submesh.indexCount,
+                                                            indexType: submesh.indexType,
+                                                            indexBuffer: submesh.indexBuffer.buffer,
+                                                            indexBufferOffset: submesh.indexBuffer.offset)
+                        index = index + 1
+                    }
+                }
                 commandEncoder.endEncoding()
                 commandBuffer.present(currentDrawable!)
             }

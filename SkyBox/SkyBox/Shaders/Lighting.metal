@@ -8,14 +8,17 @@
 
 #include <metal_stdlib>
 #include "BasicStruct.metal"
+//#import "Common.h"
+
 using namespace metal;
 
 
 struct TexturedInVertex
 {
-    float4 position [[attribute(0)]];
-    float4 normal [[attribute(1)]];
-    float4 texCoords [[attribute(2)]];
+    float3 position [[attribute(0)]];
+    float2 texCoords [[attribute(1)]];
+    float3 normal [[attribute(2)]];
+ //   float3 bitangents [[attribute(3)]];
 };
 struct TexturedColoredOutVertex
 {
@@ -61,15 +64,24 @@ float4 nor(float4 A)
     return float4(A.x / mod, A.y / mod, A.z / mod, 0);
 }
 
+struct VertexIn
+{
+    float4  position [[attribute(0)]];
+    //float3  normal [[attribute(1)]];
+    float2  texCoords [[attribute(2)]];
+};
 
 vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
                                             constant Uniforms &uniforms [[buffer(1)]])
 {
     
+    TexturedColoredOutVertex outVertex;
+    outVertex.texCoords = vertexIn.texCoords;
     float4x4 modelMatrix = uniforms.transformMatrix * uniforms.scaleMatrix  * uniforms.rotateZMatrix*uniforms.rotateYMatrix * uniforms.rotateXMatrix ;
 
-    float4 position = float4(vertexIn.position, 1);
-    float4 norm = float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 1);
+    float4 position = float4(vertexIn.position.x, vertexIn.position.y, vertexIn.position.z, 1);
+    float4 norm = float4(1,1,1,1);
+    //float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 1);
     float4 normal = nor(
                         
                        // transpose(
@@ -78,7 +90,6 @@ vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
                         //* vert[vid].normal
                         );
     float4 worldPos = modelMatrix * position;
-    TexturedColoredOutVertex outVertex;
     //float4(uniforms.intensity, 1.0) * float4(uniforms.reflectivity, 1.0) * max( dot(s, tnorm), 0.0);
     outVertex.position = uniforms.projectionMatrix *
                        uniforms.cameraViewMatirx*
@@ -93,16 +104,19 @@ vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
    // outVertex.position = Normalization(outVertex.position);
     //utVertex.position.z = 0;
     outVertex.normal = normal;
-   // outVertex.texCoords = float2(vert[vid].texCoords.x, vert[vid].texCoords.y);
     return outVertex;
 }
 
+[[early_fragment_tests]]
 fragment float4 fragment_model(
-    TexturedColoredOutVertex vert [[stage_in]],constant Light &light [[buffer(0)]]
+    TexturedColoredOutVertex vert [[stage_in]],constant Light &light [[buffer(0)]],
+    texture2d<float, access::sample> texture [[texture(0)]],
+    sampler samplr [[sampler(0)]], bool face[[front_facing]]
                                 )
 {
+    constexpr sampler textureSampler;
+    float4 diffuseColor = (texture.sample(textureSampler, vert.texCoords));
     float4 specularColor = float4(0.5, 0.5, 0.5, 1);
-    float4 diffuseColor = float4(1,1,1,1);
     
     float4 norm = nor(vert.normal);
     float4 lightDir = nor(vert.worldPos - light.lightPosition);
@@ -140,7 +154,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    
-    return float4(1,1,1,1);
+    return diffuseColor;//float4(vert.texCoords.x,vert.texCoords.y,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }

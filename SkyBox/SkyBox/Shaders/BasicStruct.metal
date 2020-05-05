@@ -38,8 +38,3 @@ struct Light
     float4 flashLightCutOff;
     float4 flashLightOuterCutOff;
 };
-struct VertexIn
-{
-    float3  position [[attribute(0)]];
-    float3  normal [[attribute(1)]];
-};
