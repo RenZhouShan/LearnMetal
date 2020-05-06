@@ -134,7 +134,7 @@ fragment float4 fragment_model(
     float4 specular = light.specular * (spec * specularColor);
     
     float4 ambient = light.ambient * diffuseColor;
-    
+    /*
     float theta = dot(flashLightDir, nor(light.flashLightDir));
     if((theta > cos(light.flashLightOuterCutOff.x)) && (theta < cos(light.flashLightCutOff.x)))
     {
@@ -148,7 +148,7 @@ fragment float4 fragment_model(
     {
         diffuse = float4(0,0,0,1);
         specular =float4(0,0,0,1);
-    }
+    }*/
     //float4 specular = specularColor * vert.lightIntensity;
     
     float4 result =
