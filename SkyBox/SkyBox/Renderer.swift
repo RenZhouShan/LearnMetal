@@ -90,9 +90,7 @@ class Renderer: NSObject, MTKViewDelegate {
         vertexDescriptor.attributes[1].format = MTLVertexFormat.float3
         vertexDescriptor.attributes[2].offset = 24
         vertexDescriptor.attributes[2].format = MTLVertexFormat.float2
-        vertexDescriptor.attributes[3].offset = 32
-        vertexDescriptor.attributes[3].format = MTLVertexFormat.float2
-        vertexDescriptor.layouts[0].stride = 40
+        vertexDescriptor.layouts[0].stride = 32
         
         let desc = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         var attribute = desc.attributes[0] as! MDLVertexAttribute
@@ -125,7 +123,7 @@ class Renderer: NSObject, MTKViewDelegate {
     }
     func UpdateLight(){
         let lightColor = SIMD4<Float>(1.0, 0.47, 0.18, 1.0)
-        let lightPosition = SIMD4<Float>(3, -3, 3, 1.0)
+        let lightPosition = SIMD4<Float>(13, -13, 13, 1.0)
         let reflectivity = SIMD4<Float>(1.0, 1.0, 1.0, 0)
         let intensity = SIMD4<Float>(12.0, 12.0, 12.0, 0)
         let ambient = SIMD4<Float>(0.2, 0.2, 0.2, 1)
@@ -205,6 +203,7 @@ class Renderer: NSObject, MTKViewDelegate {
                         commandEncoder.setCullMode(MTLCullMode.back)
                        // commandEncoder.setDepthStencilState(depthStencilState)
                         commandEncoder.setFragmentTexture(modelSubmesh.textures.baseColor, index: 0)
+                        commandEncoder.setFragmentTexture(modelSubmesh.textures.specularColor, index: 1)
                         commandEncoder.drawIndexedPrimitives(type: .triangle,
                                                             indexCount: submesh.indexCount,
                                                             indexType: submesh.indexType,

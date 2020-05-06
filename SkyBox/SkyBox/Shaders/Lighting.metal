@@ -67,7 +67,7 @@ float4 nor(float4 A)
 struct VertexIn
 {
     float4  position [[attribute(0)]];
-    //float3  normal [[attribute(1)]];
+    float4  normal [[attribute(1)]];
     float2  texCoords [[attribute(2)]];
 };
 
@@ -80,7 +80,7 @@ vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
     float4x4 modelMatrix = uniforms.transformMatrix * uniforms.scaleMatrix  * uniforms.rotateZMatrix*uniforms.rotateYMatrix * uniforms.rotateXMatrix ;
 
     float4 position = float4(vertexIn.position.x, vertexIn.position.y, vertexIn.position.z, 1);
-    float4 norm = float4(1,1,1,1);
+    float4 norm = vertexIn.normal;//float4(1,1,1,1);
     //float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 1);
     float4 normal = nor(
                         
@@ -111,6 +111,7 @@ vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
 fragment float4 fragment_model(
     TexturedColoredOutVertex vert [[stage_in]],constant Light &light [[buffer(0)]],
     texture2d<float, access::sample> texture [[texture(0)]],
+    texture2d<float, access::sample> specularTexture [[texture(1)]],
     sampler samplr [[sampler(0)]], bool face[[front_facing]]
                                 )
 {
@@ -118,7 +119,7 @@ fragment float4 fragment_model(
     float2 coor =vert.texCoords;
     
     float4 diffuseColor = (texture.sample(textureSampler, coor));
-    float4 specularColor = float4(0.5, 0.5, 0.5, 1);
+    float4 specularColor = (specularTexture.sample(textureSampler, coor));
     
     float4 norm = nor(vert.normal);
     float4 lightDir = nor(vert.worldPos - light.lightPosition);
@@ -156,6 +157,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    return diffuseColor;//float4(coor.x,0,0,1);
+    return result * 4;//diffuseColor;//float4(coor.x,0,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }

@@ -79,12 +79,14 @@ private extension Submesh.Textures {
             return texture
         }
         baseColor = property(with: MDLMaterialSemantic.baseColor)
+        specularColor = property(with: MDLMaterialSemantic.specular)
     }
 }
 
 class Submesh {
     struct Textures {
         let baseColor : MTLTexture?
+        let specularColor : MTLTexture?
     }
     let textures : Textures
     var submesh: MTKSubmesh
@@ -103,9 +105,13 @@ class Model {
                                                             format: .float3,
                                                             offset: 0, bufferIndex: 0)
         //offset 12 position float 4byte * 3个数据
-        vertexDescriptor.attributes[2] = MDLVertexAttribute(name: MDLVertexAttributeTextureCoordinate, format: .float2, offset: 12, bufferIndex: 0)
         
-        vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: 20)
+        vertexDescriptor.attributes[1] = MDLVertexAttribute(name: MDLVertexAttributeNormal,
+                                                            format: .float3,
+                                                            offset: 12, bufferIndex: 0)
+        vertexDescriptor.attributes[2] = MDLVertexAttribute(name: MDLVertexAttributeTextureCoordinate, format: .float2, offset: 24, bufferIndex: 0)
+        
+        vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: 32)
         return vertexDescriptor
     }()
     let vertexBuffer: MTLBuffer
