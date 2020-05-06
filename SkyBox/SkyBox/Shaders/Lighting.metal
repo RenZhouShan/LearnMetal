@@ -114,8 +114,10 @@ fragment float4 fragment_model(
     sampler samplr [[sampler(0)]], bool face[[front_facing]]
                                 )
 {
-    constexpr sampler textureSampler;
-    float4 diffuseColor = (texture.sample(textureSampler, vert.texCoords));
+    constexpr sampler textureSampler(coord::normalized, address::repeat, filter::linear);
+    float2 coor =vert.texCoords;
+    
+    float4 diffuseColor = (texture.sample(textureSampler, coor));
     float4 specularColor = float4(0.5, 0.5, 0.5, 1);
     
     float4 norm = nor(vert.normal);
@@ -154,6 +156,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    return diffuseColor;//float4(vert.texCoords.x,vert.texCoords.y,0,1);
+    return diffuseColor;//float4(coor.x,0,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }

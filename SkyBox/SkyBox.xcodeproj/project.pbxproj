@@ -40,7 +40,6 @@
 		DA77C36224617E2C00F6D194 /* body_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35A24617E2B00F6D194 /* body_dif.png */; };
 		DA77C36324617E2C00F6D194 /* hand_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35B24617E2B00F6D194 /* hand_dif.png */; };
 		DA77C36424617E2C00F6D194 /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35C24617E2C00F6D194 /* skybox.png */; };
-		DA77C36C2461C57500F6D194 /* Modules in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3662461C57500F6D194 /* Modules */; };
 		DA77C36D2461C57500F6D194 /* nanosuit.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3672461C57500F6D194 /* nanosuit.obj */; };
 		DA77C36E2461C57500F6D194 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3682461C57500F6D194 /* teapot.obj */; };
 		DA77C36F2461C57500F6D194 /* nanosuit.mtl in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3692461C57500F6D194 /* nanosuit.mtl */; };
@@ -106,12 +105,11 @@
 		DA77C35B24617E2B00F6D194 /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand_dif.png; path = SkyBox/hand_dif.png; sourceTree = SOURCE_ROOT; };
 		DA77C35C24617E2C00F6D194 /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = SkyBox/skybox.png; sourceTree = SOURCE_ROOT; };
 		DA77C3652461B8F800F6D194 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = SkyBox/Common.h; sourceTree = SOURCE_ROOT; };
-		DA77C3662461C57500F6D194 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Modules; sourceTree = "<group>"; };
-		DA77C3672461C57500F6D194 /* nanosuit.obj */ = {isa = PBXFileReference; lastKnownFileType = file; name = nanosuit.obj; path = SkyBox/nanosuit.obj; sourceTree = SOURCE_ROOT; };
-		DA77C3682461C57500F6D194 /* teapot.obj */ = {isa = PBXFileReference; lastKnownFileType = file; name = teapot.obj; path = SkyBox/teapot.obj; sourceTree = SOURCE_ROOT; };
-		DA77C3692461C57500F6D194 /* nanosuit.mtl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nanosuit.mtl; path = SkyBox/nanosuit.mtl; sourceTree = SOURCE_ROOT; };
+		DA77C3672461C57500F6D194 /* nanosuit.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = nanosuit.obj; path = SkyBox/nanosuit.obj; sourceTree = SOURCE_ROOT; };
+		DA77C3682461C57500F6D194 /* teapot.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = teapot.obj; path = SkyBox/teapot.obj; sourceTree = SOURCE_ROOT; };
+		DA77C3692461C57500F6D194 /* nanosuit.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; name = nanosuit.mtl; path = SkyBox/nanosuit.mtl; sourceTree = SOURCE_ROOT; };
 		DA77C36A2461C57500F6D194 /* nanosuit.blend */ = {isa = PBXFileReference; lastKnownFileType = file; name = nanosuit.blend; path = SkyBox/nanosuit.blend; sourceTree = SOURCE_ROOT; };
-		DA77C36B2461C57500F6D194 /* rabit.obj */ = {isa = PBXFileReference; lastKnownFileType = file; name = rabit.obj; path = SkyBox/rabit.obj; sourceTree = SOURCE_ROOT; };
+		DA77C36B2461C57500F6D194 /* rabit.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = rabit.obj; path = SkyBox/rabit.obj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +235,6 @@
 		DA77C31E24615CCB00F6D194 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				DA77C3662461C57500F6D194 /* Modules */,
 				DA77C36A2461C57500F6D194 /* nanosuit.blend */,
 				DA77C3692461C57500F6D194 /* nanosuit.mtl */,
 				DA77C3672461C57500F6D194 /* nanosuit.obj */,
@@ -367,7 +364,6 @@
 				DA32C86824605F6400F3D514 /* LaunchScreen.storyboard in Resources */,
 				DA32C86524605F6400F3D514 /* Assets.xcassets in Resources */,
 				DA77C34F24617DEC00F6D194 /* helmet_showroom_spec.png in Resources */,
-				DA77C36C2461C57500F6D194 /* Modules in Resources */,
 				DA77C36224617E2C00F6D194 /* body_dif.png in Resources */,
 				DA77C34B24617DEC00F6D194 /* hand_showroom_spec.png in Resources */,
 				DA77C34A24617DEC00F6D194 /* hand_showroom_ddn.png in Resources */,
