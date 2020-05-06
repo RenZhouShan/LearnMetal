@@ -201,7 +201,7 @@ class Renderer: NSObject, MTKViewDelegate {
 
                         commandEncoder.setRenderPipelineState(model.pipelineState)
                         commandEncoder.setCullMode(MTLCullMode.back)
-                       // commandEncoder.setDepthStencilState(depthStencilState)
+                        commandEncoder.setDepthStencilState(depthStencilState)
                         commandEncoder.setFragmentTexture(modelSubmesh.textures.baseColor, index: 0)
                         commandEncoder.setFragmentTexture(modelSubmesh.textures.specularColor, index: 1)
                         commandEncoder.drawIndexedPrimitives(type: .triangle,
