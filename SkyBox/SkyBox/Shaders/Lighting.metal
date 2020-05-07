@@ -117,9 +117,10 @@ fragment float4 fragment_model(
 {
     constexpr sampler textureSampler(coord::normalized, address::repeat, filter::linear);
     float2 coor =vert.texCoords;
-    
-    float4 diffuseColor = (texture.sample(textureSampler, coor));
-    float4 specularColor = (specularTexture.sample(textureSampler, coor));
+  //  coor = float2(coor.y, coor.x);
+    float4 diffuseColor = (texture.sample(samplr, coor));
+    //diffuseColor = float4(1-diffuseColor.x, 1-diffuseColor.y, 1-diffuseColor.z, 1);
+    float4 specularColor = (specularTexture.sample(samplr, coor));
     
     float4 norm = nor(vert.normal);
     float4 lightDir = nor(vert.worldPos - light.lightPosition);
@@ -157,6 +158,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    return result * 4;//diffuseColor;//float4(coor.x,0,0,1);
+    return result * 3;//diffuseColor;//float4(coor.x,0,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }

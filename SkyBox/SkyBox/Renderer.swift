@@ -58,6 +58,8 @@ class Renderer: NSObject, MTKViewDelegate {
     
     func InitDevice(metalKitView: MTKView){
         metalKitView.colorPixelFormat = .bgra8Unorm
+       // metalKitView.depthStencilPixelFormat = .bgra8Unorm
+        metalKitView.depthStencilPixelFormat = MTLPixelFormat.depth32Float_stencil8
         device = metalKitView.device!
     }
     func CreateBuffers(){
@@ -98,13 +100,16 @@ class Renderer: NSObject, MTKViewDelegate {
         attribute = desc.attributes[1] as! MDLVertexAttribute
         attribute.name = MDLVertexAttributeNormal
         
-        let model = Model.init(name: "nanosuit", device: device, mdlVertexDescriptor: desc)
+        let model = Model.init(name: "nanosuit", device: device, mdlVertexDescriptor: desc, view: metalKitView)
         models.append(model)
     }
     func SetTextures(){
         let samplerDescriptor = MTLSamplerDescriptor()
         samplerDescriptor.minFilter = .linear
         samplerDescriptor.magFilter = .linear
+        samplerDescriptor.rAddressMode = .repeat
+        samplerDescriptor.sAddressMode = .repeat
+        samplerDescriptor.tAddressMode = .repeat
         sampleState = device?.makeSamplerState(descriptor: samplerDescriptor)
         /*
         let textureLoader = MTKTextureLoader(device: device!)
@@ -186,6 +191,13 @@ class Renderer: NSObject, MTKViewDelegate {
                 depthDesc.textureType = .type2D
                 depthDesc.storageMode = .private
                 
+                
+                renderPassDescriptor.depthAttachment.clearDepth = 1.0
+                
+
+                renderPassDescriptor.depthAttachment.loadAction = MTLLoadAction.clear
+                renderPassDescriptor.depthAttachment.storeAction = MTLStoreAction.store
+                renderPassDescriptor.depthAttachment.texture = view.depthStencilTexture
                 UpdateUniformBuffer()
                 //CreateOutlineShaders(metalKitView: view)
                 

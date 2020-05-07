@@ -40,11 +40,11 @@ extension Texturable {
         let textureLoader = MTKTextureLoader(device: device)
         
         //6
-        let textureLoaderOptions2 : [MTKTextureLoader.Option : Any] =
+        let textureLoaderOptions : [MTKTextureLoader.Option : Any] =
             [.origin:
-                MTKTextureLoader.Origin.bottomLeft]
+                MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
         
-        let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
+        let textureLoaderOptions2 : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
 
         //7=
         let fileExtension = URL(fileURLWithPath: imageName).pathExtension.isEmpty ? "png" : nil
@@ -56,6 +56,7 @@ extension Texturable {
         
         let texture = try textureLoader.newTexture(URL: url, options: textureLoaderOptions)
         print("loaded texture " + imageName)
+        
         return texture;
     }
 }
@@ -119,7 +120,7 @@ class Model {
     let mesh: MTKMesh
     let submeshes: [Submesh]
     
-    init(name: String, device:MTLDevice, mdlVertexDescriptor: MDLVertexDescriptor) {
+    init(name: String, device:MTLDevice, mdlVertexDescriptor: MDLVertexDescriptor, view: MTKView) {
         guard let assetURL = Bundle.main.url(forResource: name, withExtension: "obj") else {
             fatalError()
         }
@@ -139,11 +140,11 @@ class Model {
             }
             } ?? []
         
-        pipelineState = Model.buildPipelineState(vertexDescriptor: mdlMesh.vertexDescriptor, device: device)
+        pipelineState = Model.buildPipelineState(vertexDescriptor: mdlMesh.vertexDescriptor, device: device, view: view)
     }
     
     
-    private static func buildPipelineState(vertexDescriptor: MDLVertexDescriptor, device: MTLDevice) -> MTLRenderPipelineState {
+    private static func buildPipelineState(vertexDescriptor: MDLVertexDescriptor, device: MTLDevice, view: MTKView) -> MTLRenderPipelineState {
         let library = device.makeDefaultLibrary()
         let vertexFunction = library?.makeFunction(name: "vertex_model")
         let fragmentFunction = library?.makeFunction(name: "fragment_model")
@@ -154,6 +155,8 @@ class Model {
         pipelineDescriptor.fragmentFunction = fragmentFunction
         pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineDescriptor.depthAttachmentPixelFormat = view.depthStencilPixelFormat
+        pipelineDescriptor.stencilAttachmentPixelFormat = view.depthStencilPixelFormat
 
         do {
             pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
