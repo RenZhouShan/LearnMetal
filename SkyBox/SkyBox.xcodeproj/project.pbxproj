@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA28C85B246423C500A56527 /* body_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA28C85A246423C400A56527 /* body_dif.png */; };
 		DA32C85C24605F6300F3D514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32C85B24605F6300F3D514 /* AppDelegate.swift */; };
 		DA32C85E24605F6300F3D514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32C85D24605F6300F3D514 /* SceneDelegate.swift */; };
 		DA32C86024605F6300F3D514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32C85F24605F6300F3D514 /* ViewController.swift */; };
@@ -37,7 +38,6 @@
 		DA77C35F24617E2C00F6D194 /* glass_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35724617E2B00F6D194 /* glass_dif.png */; };
 		DA77C36024617E2C00F6D194 /* helmet_diff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35824617E2B00F6D194 /* helmet_diff.png */; };
 		DA77C36124617E2C00F6D194 /* leg_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35924617E2B00F6D194 /* leg_dif.png */; };
-		DA77C36224617E2C00F6D194 /* body_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35A24617E2B00F6D194 /* body_dif.png */; };
 		DA77C36324617E2C00F6D194 /* hand_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35B24617E2B00F6D194 /* hand_dif.png */; };
 		DA77C36424617E2C00F6D194 /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = DA77C35C24617E2C00F6D194 /* skybox.png */; };
 		DA77C36D2461C57500F6D194 /* nanosuit.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3672461C57500F6D194 /* nanosuit.obj */; };
@@ -65,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA28C85A246423C400A56527 /* body_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif.png; path = SkyBox/body_dif.png; sourceTree = SOURCE_ROOT; };
 		DA32C85824605F6300F3D514 /* SkyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA32C85B24605F6300F3D514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA32C85D24605F6300F3D514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		DA77C35724617E2B00F6D194 /* glass_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_dif.png; path = SkyBox/glass_dif.png; sourceTree = SOURCE_ROOT; };
 		DA77C35824617E2B00F6D194 /* helmet_diff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helmet_diff.png; path = SkyBox/helmet_diff.png; sourceTree = SOURCE_ROOT; };
 		DA77C35924617E2B00F6D194 /* leg_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leg_dif.png; path = SkyBox/leg_dif.png; sourceTree = SOURCE_ROOT; };
-		DA77C35A24617E2B00F6D194 /* body_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif.png; path = SkyBox/body_dif.png; sourceTree = SOURCE_ROOT; };
 		DA77C35B24617E2B00F6D194 /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand_dif.png; path = SkyBox/hand_dif.png; sourceTree = SOURCE_ROOT; };
 		DA77C35C24617E2C00F6D194 /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = SkyBox/skybox.png; sourceTree = SOURCE_ROOT; };
 		DA77C3652461B8F800F6D194 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = SkyBox/Common.h; sourceTree = SOURCE_ROOT; };
@@ -201,8 +201,8 @@
 		DA77C31C24615CA000F6D194 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				DA28C85A246423C400A56527 /* body_dif.png */,
 				DA77C35524617E2B00F6D194 /* arm_dif.png */,
-				DA77C35A24617E2B00F6D194 /* body_dif.png */,
 				DA77C35624617E2B00F6D194 /* glass_ddn.png */,
 				DA77C35724617E2B00F6D194 /* glass_dif.png */,
 				DA77C35B24617E2B00F6D194 /* hand_dif.png */,
@@ -348,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA28C85B246423C500A56527 /* body_dif.png in Resources */,
 				DA77C36124617E2C00F6D194 /* leg_dif.png in Resources */,
 				DA77C36424617E2C00F6D194 /* skybox.png in Resources */,
 				DA77C36324617E2C00F6D194 /* hand_dif.png in Resources */,
@@ -364,7 +365,6 @@
 				DA32C86824605F6400F3D514 /* LaunchScreen.storyboard in Resources */,
 				DA32C86524605F6400F3D514 /* Assets.xcassets in Resources */,
 				DA77C34F24617DEC00F6D194 /* helmet_showroom_spec.png in Resources */,
-				DA77C36224617E2C00F6D194 /* body_dif.png in Resources */,
 				DA77C34B24617DEC00F6D194 /* hand_showroom_spec.png in Resources */,
 				DA77C34A24617DEC00F6D194 /* hand_showroom_ddn.png in Resources */,
 				DA77C35424617DEC00F6D194 /* body_showroom_ddn.png in Resources */,

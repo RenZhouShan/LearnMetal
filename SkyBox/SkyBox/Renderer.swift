@@ -81,7 +81,7 @@ class Renderer: NSObject, MTKViewDelegate {
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragementProgram
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .rgba8Unorm_srgb
         pipelineStateDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
         pipelineStateDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
                 
