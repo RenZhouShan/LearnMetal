@@ -81,7 +81,7 @@ class Renderer: NSObject, MTKViewDelegate {
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragementProgram
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .rgba8Unorm_srgb
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .rgba32Uint
         pipelineStateDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
         pipelineStateDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
                 
@@ -182,6 +182,7 @@ class Renderer: NSObject, MTKViewDelegate {
             let renderPassDescriptor = view.currentRenderPassDescriptor
             if let renderPassDescriptor = renderPassDescriptor, let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
                 let currentDrawable = view.currentDrawable
+                view.clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable?.texture
                 renderPassDescriptor.colorAttachments[0].loadAction = .clear
                 renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)

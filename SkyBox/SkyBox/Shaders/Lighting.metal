@@ -165,6 +165,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    return result * 4;//float4(coor.x,0,0,1);
+    return result;//float4(coor.x,0,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }
