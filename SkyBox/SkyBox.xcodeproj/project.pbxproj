@@ -45,6 +45,7 @@
 		DA77C36F2461C57500F6D194 /* nanosuit.mtl in Resources */ = {isa = PBXBuildFile; fileRef = DA77C3692461C57500F6D194 /* nanosuit.mtl */; };
 		DA77C3702461C57500F6D194 /* nanosuit.blend in Resources */ = {isa = PBXBuildFile; fileRef = DA77C36A2461C57500F6D194 /* nanosuit.blend */; };
 		DA77C3712461C57500F6D194 /* rabit.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA77C36B2461C57500F6D194 /* rabit.obj */; };
+		DAC42F1B2467A338000EADAA /* SkyBox.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAC42F1A2467A338000EADAA /* SkyBox.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		DA77C3692461C57500F6D194 /* nanosuit.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; name = nanosuit.mtl; path = SkyBox/nanosuit.mtl; sourceTree = SOURCE_ROOT; };
 		DA77C36A2461C57500F6D194 /* nanosuit.blend */ = {isa = PBXFileReference; lastKnownFileType = file; name = nanosuit.blend; path = SkyBox/nanosuit.blend; sourceTree = SOURCE_ROOT; };
 		DA77C36B2461C57500F6D194 /* rabit.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = rabit.obj; path = SkyBox/rabit.obj; sourceTree = SOURCE_ROOT; };
+		DAC42F1A2467A338000EADAA /* SkyBox.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SkyBox.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			children = (
 				DA32C8942460687700F3D514 /* BasicStruct.metal */,
 				DA32C88B2460687700F3D514 /* Lighting.metal */,
+				DAC42F1A2467A338000EADAA /* SkyBox.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				DA32C89E2460687700F3D514 /* BasicStruct.metal in Sources */,
 				DA32C89D2460687700F3D514 /* Model.swift in Sources */,
 				DA32C85C24605F6300F3D514 /* AppDelegate.swift in Sources */,
+				DAC42F1B2467A338000EADAA /* SkyBox.metal in Sources */,
 				DA32C85E24605F6300F3D514 /* SceneDelegate.swift in Sources */,
 				DA32C89C2460687700F3D514 /* Camera.swift in Sources */,
 			);

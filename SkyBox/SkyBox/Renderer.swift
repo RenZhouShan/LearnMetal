@@ -17,13 +17,80 @@ enum RendererError: Error {
 }
 
 class Renderer: NSObject, MTKViewDelegate {
+    let skyboxVertices = [
+                    // top
+    VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0/6, 0.0, 0.0]),//左上 0
+    VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//右上 5
+    VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 0.0/6, 0.0, 0.0]),//右上 1
+
+    VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0/6, 0.0, 0.0]),//左上 0
+    VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 1.0/6, 0.0, 0.0]),//左上 4
+    VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//右上 5
+    
+
+             // left
+     VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 5.0/6, 0.0, 0.0]),//右上 1
+     VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 6.0/6, 0.0, 0.0]),//右上 5
+     VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//右下 3
+
+     VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//右下 3
+     VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 6.0/6, 0.0, 0.0]),//右上 5
+     VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 6.0/6, 0.0, 0.0]),//右下 7
+        // */
+        // font
+        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左上 0
+        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 3.0/6, 0.0, 0.0]),//左下 2
+        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 3
+
+        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左上 0
+        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 3
+        VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右上 1
+        // right
+        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 0
+        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//左上 4
+        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//左下 2
+
+        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//左下 2
+        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 5.0/6, 0.0, 0.0]),//左下 6
+        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//左上 4
+         
+                // back
+        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 4
+        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 7
+        VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//右上 5
+
+        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 4
+        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 7
+        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 3.0/6, 0.0, 0.0]),//左下 6
+
+        
+
+        
+                // bottom
+        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//左下 2
+        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 1.0/6, 0.0, 0.0]),//右下 3
+        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右下 7
+
+        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//左下 2
+        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左下 6
+        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右下 7
+        
+                
+
+                
+          // */
+          
+    ];
+    
     public var device: MTLDevice! = nil
     var metalPipeline: MTLRenderPipelineState! = nil
+    var skyboxPipeline: MTLRenderPipelineState! = nil
     
     var vertexBuffer: MTLBuffer! = nil
     var uniformBuffer: MTLBuffer! = nil
     var lightBuffer: MTLBuffer! = nil
     var vertexDescriptor: MTLVertexDescriptor! = nil
+    var vertexSkyBoxDescriptor: MTLVertexDescriptor! = nil
     var stencilDescriptor: MTLVertexDescriptor! = nil
     
     var moduleTexture: [MTLTexture]!
@@ -38,12 +105,14 @@ class Renderer: NSObject, MTKViewDelegate {
     
     var rotationAngle: Float32 = 0
     var vertexDataSize: Int = 0
+    var vertexSkyBoxDataSize: Int = 0
+    var vertexSkyboxBuffer: MTLBuffer! = nil
+    var skyboxTexture: MTLTexture! = nil
     var aspect: Float = 0.0
     var scaleOffset: Float = 1.0
     var scale: Float = 1.0
     var models: [Model] = []
     //let texturePaths = []
-
     
     
     init?(metalKitView: MTKView){
@@ -51,7 +120,8 @@ class Renderer: NSObject, MTKViewDelegate {
         InitDevice(metalKitView: metalKitView)
         InitDepthStencil(metalKitView: metalKitView)
         CreateBuffers()
-        CreateCubeShaders(metalKitView: metalKitView)
+        CreateModelShaders(metalKitView: metalKitView)
+        CreateSkyBox(metalKitView: metalKitView)
         SetTextures()
         UpdateLight()
     }
@@ -65,16 +135,14 @@ class Renderer: NSObject, MTKViewDelegate {
     func CreateBuffers(){
         commandQueue = device!.makeCommandQueue()
     }
-    
-
    func InitDepthStencil(metalKitView: MTKView){
-       var depthStateDesciptor = MTLDepthStencilDescriptor()
-       depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
-       depthStateDesciptor.isDepthWriteEnabled = true
+        let depthStateDesciptor = MTLDepthStencilDescriptor()
+        depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
+        depthStateDesciptor.isDepthWriteEnabled = true
        
        depthStencilState = device!.makeDepthStencilState(descriptor: depthStateDesciptor)
     }
-    func CreateCubeShaders(metalKitView: MTKView){
+    func CreateModelShaders(metalKitView: MTKView){
         let defaultLibrary = device.makeDefaultLibrary() //else {return}
         let vertexProgram = defaultLibrary?.makeFunction(name: "vertex_model") //else {return}
         let fragementProgram = defaultLibrary?.makeFunction(name: "fragment_model") //else {return}
@@ -103,6 +171,49 @@ class Renderer: NSObject, MTKViewDelegate {
         let model = Model.init(name: "nanosuit", device: device, mdlVertexDescriptor: desc, view: metalKitView)
         models.append(model)
     }
+    func CreateSkyBox(metalKitView: MTKView){
+        
+        vertexSkyBoxDataSize = skyboxVertices.count * MemoryLayout.size(ofValue: skyboxVertices[0])
+        vertexSkyboxBuffer = device.makeBuffer(bytes: skyboxVertices, length: vertexSkyBoxDataSize, options: [])
+        vertexSkyboxBuffer.label = "skybox"
+        
+        
+        let defaultLibrary = device.makeDefaultLibrary() //else {return}
+        let vertexProgram = defaultLibrary?.makeFunction(name: "vertex_skybox") //else {return}
+        let fragementProgram = defaultLibrary?.makeFunction(name: "fragment_skybox") //else {return}
+        let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        pipelineStateDescriptor.vertexFunction = vertexProgram
+        pipelineStateDescriptor.fragmentFunction = fragementProgram
+                
+        vertexSkyBoxDescriptor = MTLVertexDescriptor()
+        vertexSkyBoxDescriptor.attributes[0].offset = 0
+        vertexSkyBoxDescriptor.attributes[0].format = MTLVertexFormat.float4
+        vertexSkyBoxDescriptor.attributes[1].offset = 16
+        vertexSkyBoxDescriptor.attributes[1].format = MTLVertexFormat.float4
+        vertexSkyBoxDescriptor.attributes[2].offset = 32
+        vertexSkyBoxDescriptor.attributes[2].format = MTLVertexFormat.float4
+        vertexSkyBoxDescriptor.layouts[0].stride = 48
+        vertexSkyBoxDescriptor.layouts[0].stepRate = 1
+        
+        
+        pipelineStateDescriptor.vertexDescriptor = vertexSkyBoxDescriptor
+        pipelineStateDescriptor.sampleCount = 1
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        
+        pipelineStateDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
+        pipelineStateDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
+        do {
+            try skyboxPipeline = device?.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
+        } catch let error{
+            print("Failed to create pipeline state, error \(error)")
+        }
+        
+        
+        let path = Bundle.main.path(forResource: "skybox", ofType: "png")
+        let textureLoader = MTKTextureLoader(device: device!)
+        let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
+        skyboxTexture = try! textureLoader.newTexture(URL: URL(fileURLWithPath: path!), options: textureLoaderOptions)
+    }
     func SetTextures(){
         let samplerDescriptor = MTLSamplerDescriptor()
         samplerDescriptor.minFilter = .linear
@@ -111,20 +222,7 @@ class Renderer: NSObject, MTKViewDelegate {
         samplerDescriptor.sAddressMode = .repeat
         samplerDescriptor.tAddressMode = .repeat
         sampleState = device?.makeSamplerState(descriptor: samplerDescriptor)
-        /*
-        let textureLoader = MTKTextureLoader(device: device!)
-        let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
 
-        let mesh = (meshes?.first)!
-        let count = mesh.submeshes.count
-        for i in 0 ..< count{
-            var name = mesh.submeshes[i].name
-            var name1 = mesh.submeshes[1].name
-            var name2 = mesh.submeshes[2].name
-            var name3 = mesh.submeshes[3].name
-            let path = Bundle.main.path(forResource: "container2", ofType: "png")
-            moduleTexture[i] = try! textureLoader.newTexture(URL: URL(fileURLWithPath: path!), options: textureLoaderOptions)
-        }*/
     }
     func UpdateLight(){
         let lightColor = SIMD4<Float>(1.0, 0.47, 0.18, 1.0)
@@ -149,7 +247,7 @@ class Renderer: NSObject, MTKViewDelegate {
     
     func UpdateUniformBuffer(){
         // Matrix Uniforms
-        rotationAngle += 1 / 2 * Float(10) / 4
+        rotationAngle += 1 / 5 * Float(10) / 4
         let cameraPos = SIMD4<Float>(0, 0, 3, 1)
         let targetPos = SIMD4<Float>(0.0, 0, -1.5, 1)
         let lookUp = SIMD4<Float>(0.0, 1.0, 0, 0)
@@ -187,6 +285,7 @@ class Renderer: NSObject, MTKViewDelegate {
                 renderPassDescriptor.colorAttachments[0].loadAction = .clear
                 renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
                 
+                
                 let depthDesc = MTLTextureDescriptor()
                 depthDesc.usage =  [MTLTextureUsage.shaderRead , MTLTextureUsage.renderTarget]
                 depthDesc.textureType = .type2D
@@ -194,12 +293,17 @@ class Renderer: NSObject, MTKViewDelegate {
                 
                 
                 renderPassDescriptor.depthAttachment.clearDepth = 1.0
-                
-
                 renderPassDescriptor.depthAttachment.loadAction = MTLLoadAction.clear
                 renderPassDescriptor.depthAttachment.storeAction = MTLStoreAction.store
                 renderPassDescriptor.depthAttachment.texture = view.depthStencilTexture
                 UpdateUniformBuffer()
+                
+                commandEncoder.setVertexBuffer(vertexSkyboxBuffer, offset: 0, index: 0)
+                commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
+                commandEncoder.setFragmentTexture(skyboxTexture, index: 0)
+                commandEncoder.setRenderPipelineState(skyboxPipeline)
+                commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: skyboxVertices.count, instanceCount: 1)
+
                 //CreateOutlineShaders(metalKitView: view)
                 
                 commandEncoder.setStencilReferenceValue(1)
