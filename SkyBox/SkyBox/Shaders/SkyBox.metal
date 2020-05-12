@@ -32,7 +32,7 @@ vertex VertexOut vertex_skybox(
     mat[1][1] = scale;
     mat[2][2] = scale;
     float4x4 modelMatrix = // uniforms.transformMatrix * ;
-     mat * uniforms.rotateZMatrix*uniforms.rotateYMatrix * uniforms.rotateXMatrix ;
+    mat;// * uniforms.rotateZMatrix*uniforms.rotateYMatrix * uniforms.rotateXMatrix ;
     
     float4 position = vert[vid].position;
     float4 worldPos = modelMatrix * position;

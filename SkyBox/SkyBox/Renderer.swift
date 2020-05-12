@@ -321,6 +321,7 @@ class Renderer: NSObject, MTKViewDelegate {
                         commandEncoder.setDepthStencilState(depthStencilState)
                         commandEncoder.setFragmentTexture(modelSubmesh.textures.baseColor, index: 0)
                         commandEncoder.setFragmentTexture(modelSubmesh.textures.specularColor, index: 1)
+                        commandEncoder.setFragmentTexture(skyboxTexture, index: 2)
                         commandEncoder.drawIndexedPrimitives(type: .triangle,
                                                             indexCount: submesh.indexCount,
                                                             indexType: submesh.indexType,

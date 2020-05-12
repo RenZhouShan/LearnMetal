@@ -26,7 +26,7 @@ struct TexturedColoredOutVertex
     float4 originalPos;
     float4 normal;
     float4 worldPos;
-    float4 viewDir;
+    float4 cameraPos;
     float4 color;
     float2 texCoords;
 };
@@ -98,8 +98,7 @@ vertex TexturedColoredOutVertex vertex_model(VertexIn vertexIn [[stage_in]],
 
     ;
     outVertex.worldPos = worldPos;
-    float4 viewDir = uniforms.cameraPos - worldPos;
-    outVertex.viewDir = nor(viewDir);
+    outVertex.cameraPos = uniforms.cameraPos;
     outVertex.color = float4(outVertex.position.z / 4);
    // outVertex.position = Normalization(outVertex.position);
     //utVertex.position.z = 0;
@@ -112,6 +111,7 @@ fragment float4 fragment_model(
     TexturedColoredOutVertex vert [[stage_in]],constant Light &light [[buffer(0)]],
     texture2d<float, access::sample> texture [[texture(0)]],
     texture2d<float, access::sample> specularTexture [[texture(1)]],
+    texture2d<float, access::sample> skyboxTexture [[texture(2)]],
     sampler samplr [[sampler(0)]], bool face[[front_facing]]
                                 )
 {
@@ -127,21 +127,25 @@ fragment float4 fragment_model(
     //diffuseColor.a = 1;
     //diffuseColor = 1 - diffuseColor;
     //diffuseColor = float4(1-diffuseColor.x, 1-diffuseColor.y, 1-diffuseColor.z, 1);
-    float4 specularColor = (specularTexture.sample(samplr, coor));
     
     float4 norm = nor(vert.normal);
-    float4 lightDir = nor(vert.worldPos - light.lightPosition);
+    float4 lightDir = nor(vert.position - light.lightPosition);
     
     float diff = max(-dot(norm, lightDir), 0.0);
     float4 diffuse = light.difuse * diff * diffuseColor;
     
-    float4 flashLightDir = nor(light.flashLightPos - vert.worldPos);
+    float4 flashLightDir = -nor(light.flashLightPos - vert.worldPos);
+    float4 specularColor = (specularTexture.sample(samplr, coor));
     
     float4 reflectDir = reflect(lightDir, norm);
-    float spec = pow(max(dot(vert.viewDir, reflectDir), 0.0), light.shininess.x);
+    float4 viewDir = nor(vert.position - vert.cameraPos);
+    float4 halfDir = nor(lightDir + viewDir);
+    float4 skyboxColor = skyboxTexture.sample(samplr, reflectDir.xy) / 2;
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), light.shininess.x);
     float4 specular = light.specular * (spec * specularColor);
     
     float4 ambient = light.ambient * diffuseColor;
+    
     /*
     float theta = dot(flashLightDir, nor(light.flashLightDir));
     if((theta > cos(light.flashLightOuterCutOff.x)) && (theta < cos(light.flashLightCutOff.x)))
@@ -165,6 +169,6 @@ fragment float4 fragment_model(
     //diffuse
     // specular
     ;
-    return result * 2.5;//float4(coor.x,0,0,1);
+    return result * 3 ;//+ skyboxColor;//float4(coor.x,0,0,1);
     //(result.r, result.g, result.b, 1);//*/ half4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1);
 }
