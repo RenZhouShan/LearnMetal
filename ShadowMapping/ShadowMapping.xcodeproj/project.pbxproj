@@ -1,0 +1,761 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA99E1A6246B7CE7003ECDC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1A5246B7CE7003ECDC1 /* AppDelegate.swift */; };
+		DA99E1A8246B7CE7003ECDC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1A7246B7CE7003ECDC1 /* SceneDelegate.swift */; };
+		DA99E1AA246B7CE7003ECDC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1A9246B7CE7003ECDC1 /* ViewController.swift */; };
+		DA99E1AD246B7CE7003ECDC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1AB246B7CE7003ECDC1 /* Main.storyboard */; };
+		DA99E1AF246B7CF4003ECDC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1AE246B7CF4003ECDC1 /* Assets.xcassets */; };
+		DA99E1B2246B7CF4003ECDC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1B0246B7CF4003ECDC1 /* LaunchScreen.storyboard */; };
+		DA99E1BD246B7CF6003ECDC1 /* ShadowMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1BC246B7CF6003ECDC1 /* ShadowMappingTests.swift */; };
+		DA99E1C8246B7CF6003ECDC1 /* ShadowMappingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1C7246B7CF6003ECDC1 /* ShadowMappingUITests.swift */; };
+		DA99E1DC246B7DD7003ECDC1 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1D9246B7DD7003ECDC1 /* Lighting.metal */; };
+		DA99E1DD246B7DD7003ECDC1 /* SkyBox.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1DA246B7DD7003ECDC1 /* SkyBox.metal */; };
+		DA99E1DE246B7DD7003ECDC1 /* BasicStruct.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA99E1DB246B7DD7003ECDC1 /* BasicStruct.metal */; };
+		DA99E1F7246B7DFC003ECDC1 /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1DF246B7DFA003ECDC1 /* skybox.png */; };
+		DA99E1F8246B7DFC003ECDC1 /* leg_showroom_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E0246B7DFA003ECDC1 /* leg_showroom_spec.png */; };
+		DA99E1F9246B7DFC003ECDC1 /* body_showroom_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E1246B7DFA003ECDC1 /* body_showroom_ddn.png */; };
+		DA99E1FA246B7DFC003ECDC1 /* leg_showroom_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E2246B7DFA003ECDC1 /* leg_showroom_ddn.png */; };
+		DA99E1FB246B7DFC003ECDC1 /* body_dif5.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E3246B7DFA003ECDC1 /* body_dif5.png */; };
+		DA99E1FC246B7DFC003ECDC1 /* arm_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E4246B7DFA003ECDC1 /* arm_dif.png */; };
+		DA99E1FD246B7DFC003ECDC1 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E5246B7DFA003ECDC1 /* Textures */; };
+		DA99E1FE246B7DFC003ECDC1 /* helmet_showroom_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E6246B7DFA003ECDC1 /* helmet_showroom_ddn.png */; };
+		DA99E1FF246B7DFC003ECDC1 /* body_dif4.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E7246B7DFA003ECDC1 /* body_dif4.png */; };
+		DA99E200246B7DFC003ECDC1 /* body_dif3.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E8246B7DFA003ECDC1 /* body_dif3.png */; };
+		DA99E201246B7DFC003ECDC1 /* hand_showroom_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1E9246B7DFA003ECDC1 /* hand_showroom_ddn.png */; };
+		DA99E202246B7DFC003ECDC1 /* body_showroom_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1EA246B7DFB003ECDC1 /* body_showroom_spec.png */; };
+		DA99E203246B7DFC003ECDC1 /* arm_showroom_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1EB246B7DFB003ECDC1 /* arm_showroom_ddn.png */; };
+		DA99E204246B7DFC003ECDC1 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1EC246B7DFB003ECDC1 /* grass.png */; };
+		DA99E205246B7DFC003ECDC1 /* hand_showroom_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1ED246B7DFB003ECDC1 /* hand_showroom_spec.png */; };
+		DA99E206246B7DFC003ECDC1 /* body_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1EE246B7DFB003ECDC1 /* body_dif.png */; };
+		DA99E207246B7DFC003ECDC1 /* hand_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1EF246B7DFB003ECDC1 /* hand_dif.png */; };
+		DA99E208246B7DFC003ECDC1 /* leg_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F0246B7DFB003ECDC1 /* leg_dif.png */; };
+		DA99E209246B7DFC003ECDC1 /* glass_dif.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F1246B7DFB003ECDC1 /* glass_dif.png */; };
+		DA99E20A246B7DFC003ECDC1 /* arm_showroom_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F2246B7DFB003ECDC1 /* arm_showroom_spec.png */; };
+		DA99E20B246B7DFC003ECDC1 /* glass_ddn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F3246B7DFB003ECDC1 /* glass_ddn.png */; };
+		DA99E20C246B7DFC003ECDC1 /* body_dif1.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F4246B7DFC003ECDC1 /* body_dif1.png */; };
+		DA99E20D246B7DFC003ECDC1 /* helmet_diff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F5246B7DFC003ECDC1 /* helmet_diff.png */; };
+		DA99E20E246B7DFC003ECDC1 /* helmet_showroom_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = DA99E1F6246B7DFC003ECDC1 /* helmet_showroom_spec.png */; };
+		DA99E213246B7E14003ECDC1 /* nanosuit.mtl in Resources */ = {isa = PBXBuildFile; fileRef = DA99E20F246B7E14003ECDC1 /* nanosuit.mtl */; };
+		DA99E214246B7E14003ECDC1 /* nanosuit.blend in Resources */ = {isa = PBXBuildFile; fileRef = DA99E210246B7E14003ECDC1 /* nanosuit.blend */; };
+		DA99E215246B7E14003ECDC1 /* nanosuit.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA99E211246B7E14003ECDC1 /* nanosuit.obj */; };
+		DA99E216246B7E14003ECDC1 /* rabit.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA99E212246B7E14003ECDC1 /* rabit.obj */; };
+		DA99E21C246B7E26003ECDC1 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E217246B7E26003ECDC1 /* Matrix.swift */; };
+		DA99E21D246B7E26003ECDC1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E218246B7E26003ECDC1 /* Model.swift */; };
+		DA99E21E246B7E26003ECDC1 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E21A246B7E26003ECDC1 /* Renderer.swift */; };
+		DA99E21F246B7E26003ECDC1 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E21B246B7E26003ECDC1 /* Camera.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA99E1B9246B7CF6003ECDC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA99E19A246B7CE7003ECDC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA99E1A1246B7CE7003ECDC1;
+			remoteInfo = ShadowMapping;
+		};
+		DA99E1C4246B7CF6003ECDC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA99E19A246B7CE7003ECDC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA99E1A1246B7CE7003ECDC1;
+			remoteInfo = ShadowMapping;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA99E1A2246B7CE7003ECDC1 /* ShadowMapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShadowMapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA99E1A5246B7CE7003ECDC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA99E1A7246B7CE7003ECDC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DA99E1A9246B7CE7003ECDC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA99E1AC246B7CE7003ECDC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA99E1AE246B7CF4003ECDC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA99E1B1246B7CF4003ECDC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA99E1B3246B7CF4003ECDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA99E1B8246B7CF6003ECDC1 /* ShadowMappingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShadowMappingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA99E1BC246B7CF6003ECDC1 /* ShadowMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowMappingTests.swift; sourceTree = "<group>"; };
+		DA99E1BE246B7CF6003ECDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA99E1C3246B7CF6003ECDC1 /* ShadowMappingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShadowMappingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA99E1C7246B7CF6003ECDC1 /* ShadowMappingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowMappingUITests.swift; sourceTree = "<group>"; };
+		DA99E1C9246B7CF6003ECDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA99E1D9246B7DD7003ECDC1 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
+		DA99E1DA246B7DD7003ECDC1 /* SkyBox.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = SkyBox.metal; sourceTree = "<group>"; };
+		DA99E1DB246B7DD7003ECDC1 /* BasicStruct.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = BasicStruct.metal; sourceTree = "<group>"; };
+		DA99E1DF246B7DFA003ECDC1 /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = ShadowMapping/skybox.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E0246B7DFA003ECDC1 /* leg_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leg_showroom_spec.png; path = ShadowMapping/leg_showroom_spec.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E1246B7DFA003ECDC1 /* body_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_showroom_ddn.png; path = ShadowMapping/body_showroom_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E2246B7DFA003ECDC1 /* leg_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leg_showroom_ddn.png; path = ShadowMapping/leg_showroom_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E3246B7DFA003ECDC1 /* body_dif5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif5.png; path = ShadowMapping/body_dif5.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E4246B7DFA003ECDC1 /* arm_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arm_dif.png; path = ShadowMapping/arm_dif.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E5246B7DFA003ECDC1 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Textures; sourceTree = "<group>"; };
+		DA99E1E6246B7DFA003ECDC1 /* helmet_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helmet_showroom_ddn.png; path = ShadowMapping/helmet_showroom_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E7246B7DFA003ECDC1 /* body_dif4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif4.png; path = ShadowMapping/body_dif4.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E8246B7DFA003ECDC1 /* body_dif3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif3.png; path = ShadowMapping/body_dif3.png; sourceTree = SOURCE_ROOT; };
+		DA99E1E9246B7DFA003ECDC1 /* hand_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand_showroom_ddn.png; path = ShadowMapping/hand_showroom_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1EA246B7DFB003ECDC1 /* body_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_showroom_spec.png; path = ShadowMapping/body_showroom_spec.png; sourceTree = SOURCE_ROOT; };
+		DA99E1EB246B7DFB003ECDC1 /* arm_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arm_showroom_ddn.png; path = ShadowMapping/arm_showroom_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1EC246B7DFB003ECDC1 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = ShadowMapping/grass.png; sourceTree = SOURCE_ROOT; };
+		DA99E1ED246B7DFB003ECDC1 /* hand_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand_showroom_spec.png; path = ShadowMapping/hand_showroom_spec.png; sourceTree = SOURCE_ROOT; };
+		DA99E1EE246B7DFB003ECDC1 /* body_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif.png; path = ShadowMapping/body_dif.png; sourceTree = SOURCE_ROOT; };
+		DA99E1EF246B7DFB003ECDC1 /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand_dif.png; path = ShadowMapping/hand_dif.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F0246B7DFB003ECDC1 /* leg_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leg_dif.png; path = ShadowMapping/leg_dif.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F1246B7DFB003ECDC1 /* glass_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_dif.png; path = ShadowMapping/glass_dif.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F2246B7DFB003ECDC1 /* arm_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arm_showroom_spec.png; path = ShadowMapping/arm_showroom_spec.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F3246B7DFB003ECDC1 /* glass_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_ddn.png; path = ShadowMapping/glass_ddn.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F4246B7DFC003ECDC1 /* body_dif1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = body_dif1.png; path = ShadowMapping/body_dif1.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F5246B7DFC003ECDC1 /* helmet_diff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helmet_diff.png; path = ShadowMapping/helmet_diff.png; sourceTree = SOURCE_ROOT; };
+		DA99E1F6246B7DFC003ECDC1 /* helmet_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helmet_showroom_spec.png; path = ShadowMapping/helmet_showroom_spec.png; sourceTree = SOURCE_ROOT; };
+		DA99E20F246B7E14003ECDC1 /* nanosuit.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nanosuit.mtl; sourceTree = "<group>"; };
+		DA99E210246B7E14003ECDC1 /* nanosuit.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = nanosuit.blend; sourceTree = "<group>"; };
+		DA99E211246B7E14003ECDC1 /* nanosuit.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nanosuit.obj; sourceTree = "<group>"; };
+		DA99E212246B7E14003ECDC1 /* rabit.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rabit.obj; sourceTree = "<group>"; };
+		DA99E217246B7E26003ECDC1 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		DA99E218246B7E26003ECDC1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DA99E219246B7E26003ECDC1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		DA99E21A246B7E26003ECDC1 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		DA99E21B246B7E26003ECDC1 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA99E19F246B7CE7003ECDC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1B5246B7CF6003ECDC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1C0246B7CF6003ECDC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA99E199246B7CE7003ECDC1 = {
+			isa = PBXGroup;
+			children = (
+				DA99E1A4246B7CE7003ECDC1 /* ShadowMapping */,
+				DA99E1BB246B7CF6003ECDC1 /* ShadowMappingTests */,
+				DA99E1C6246B7CF6003ECDC1 /* ShadowMappingUITests */,
+				DA99E1A3246B7CE7003ECDC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA99E1A3246B7CE7003ECDC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E1A2246B7CE7003ECDC1 /* ShadowMapping.app */,
+				DA99E1B8246B7CF6003ECDC1 /* ShadowMappingTests.xctest */,
+				DA99E1C3246B7CF6003ECDC1 /* ShadowMappingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA99E1A4246B7CE7003ECDC1 /* ShadowMapping */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E21B246B7E26003ECDC1 /* Camera.swift */,
+				DA99E219246B7E26003ECDC1 /* Common.h */,
+				DA99E217246B7E26003ECDC1 /* Matrix.swift */,
+				DA99E218246B7E26003ECDC1 /* Model.swift */,
+				DA99E21A246B7E26003ECDC1 /* Renderer.swift */,
+				DA99E1D8246B7DB0003ECDC1 /* Models */,
+				DA99E1D7246B7DA8003ECDC1 /* Shaders */,
+				DA99E1D6246B7D91003ECDC1 /* Textures */,
+				DA99E1A5246B7CE7003ECDC1 /* AppDelegate.swift */,
+				DA99E1A7246B7CE7003ECDC1 /* SceneDelegate.swift */,
+				DA99E1A9246B7CE7003ECDC1 /* ViewController.swift */,
+				DA99E1AB246B7CE7003ECDC1 /* Main.storyboard */,
+				DA99E1AE246B7CF4003ECDC1 /* Assets.xcassets */,
+				DA99E1B0246B7CF4003ECDC1 /* LaunchScreen.storyboard */,
+				DA99E1B3246B7CF4003ECDC1 /* Info.plist */,
+			);
+			path = ShadowMapping;
+			sourceTree = "<group>";
+		};
+		DA99E1BB246B7CF6003ECDC1 /* ShadowMappingTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E1BC246B7CF6003ECDC1 /* ShadowMappingTests.swift */,
+				DA99E1BE246B7CF6003ECDC1 /* Info.plist */,
+			);
+			path = ShadowMappingTests;
+			sourceTree = "<group>";
+		};
+		DA99E1C6246B7CF6003ECDC1 /* ShadowMappingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E1C7246B7CF6003ECDC1 /* ShadowMappingUITests.swift */,
+				DA99E1C9246B7CF6003ECDC1 /* Info.plist */,
+			);
+			path = ShadowMappingUITests;
+			sourceTree = "<group>";
+		};
+		DA99E1D6246B7D91003ECDC1 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E1E4246B7DFA003ECDC1 /* arm_dif.png */,
+				DA99E1EB246B7DFB003ECDC1 /* arm_showroom_ddn.png */,
+				DA99E1F2246B7DFB003ECDC1 /* arm_showroom_spec.png */,
+				DA99E1EE246B7DFB003ECDC1 /* body_dif.png */,
+				DA99E1F4246B7DFC003ECDC1 /* body_dif1.png */,
+				DA99E1E8246B7DFA003ECDC1 /* body_dif3.png */,
+				DA99E1E7246B7DFA003ECDC1 /* body_dif4.png */,
+				DA99E1E3246B7DFA003ECDC1 /* body_dif5.png */,
+				DA99E1E1246B7DFA003ECDC1 /* body_showroom_ddn.png */,
+				DA99E1EA246B7DFB003ECDC1 /* body_showroom_spec.png */,
+				DA99E1F3246B7DFB003ECDC1 /* glass_ddn.png */,
+				DA99E1F1246B7DFB003ECDC1 /* glass_dif.png */,
+				DA99E1EC246B7DFB003ECDC1 /* grass.png */,
+				DA99E1EF246B7DFB003ECDC1 /* hand_dif.png */,
+				DA99E1E9246B7DFA003ECDC1 /* hand_showroom_ddn.png */,
+				DA99E1ED246B7DFB003ECDC1 /* hand_showroom_spec.png */,
+				DA99E1F5246B7DFC003ECDC1 /* helmet_diff.png */,
+				DA99E1E6246B7DFA003ECDC1 /* helmet_showroom_ddn.png */,
+				DA99E1F6246B7DFC003ECDC1 /* helmet_showroom_spec.png */,
+				DA99E1F0246B7DFB003ECDC1 /* leg_dif.png */,
+				DA99E1E2246B7DFA003ECDC1 /* leg_showroom_ddn.png */,
+				DA99E1E0246B7DFA003ECDC1 /* leg_showroom_spec.png */,
+				DA99E1DF246B7DFA003ECDC1 /* skybox.png */,
+				DA99E1E5246B7DFA003ECDC1 /* Textures */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		DA99E1D7246B7DA8003ECDC1 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E1DB246B7DD7003ECDC1 /* BasicStruct.metal */,
+				DA99E1D9246B7DD7003ECDC1 /* Lighting.metal */,
+				DA99E1DA246B7DD7003ECDC1 /* SkyBox.metal */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		DA99E1D8246B7DB0003ECDC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA99E210246B7E14003ECDC1 /* nanosuit.blend */,
+				DA99E20F246B7E14003ECDC1 /* nanosuit.mtl */,
+				DA99E211246B7E14003ECDC1 /* nanosuit.obj */,
+				DA99E212246B7E14003ECDC1 /* rabit.obj */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA99E1A1246B7CE7003ECDC1 /* ShadowMapping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA99E1CC246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMapping" */;
+			buildPhases = (
+				DA99E19E246B7CE7003ECDC1 /* Sources */,
+				DA99E19F246B7CE7003ECDC1 /* Frameworks */,
+				DA99E1A0246B7CE7003ECDC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShadowMapping;
+			productName = ShadowMapping;
+			productReference = DA99E1A2246B7CE7003ECDC1 /* ShadowMapping.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA99E1B7246B7CF6003ECDC1 /* ShadowMappingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA99E1CF246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMappingTests" */;
+			buildPhases = (
+				DA99E1B4246B7CF6003ECDC1 /* Sources */,
+				DA99E1B5246B7CF6003ECDC1 /* Frameworks */,
+				DA99E1B6246B7CF6003ECDC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA99E1BA246B7CF6003ECDC1 /* PBXTargetDependency */,
+			);
+			name = ShadowMappingTests;
+			productName = ShadowMappingTests;
+			productReference = DA99E1B8246B7CF6003ECDC1 /* ShadowMappingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA99E1C2246B7CF6003ECDC1 /* ShadowMappingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA99E1D2246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMappingUITests" */;
+			buildPhases = (
+				DA99E1BF246B7CF6003ECDC1 /* Sources */,
+				DA99E1C0246B7CF6003ECDC1 /* Frameworks */,
+				DA99E1C1246B7CF6003ECDC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA99E1C5246B7CF6003ECDC1 /* PBXTargetDependency */,
+			);
+			name = ShadowMappingUITests;
+			productName = ShadowMappingUITests;
+			productReference = DA99E1C3246B7CF6003ECDC1 /* ShadowMappingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA99E19A246B7CE7003ECDC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Hao Zhou";
+				TargetAttributes = {
+					DA99E1A1246B7CE7003ECDC1 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					DA99E1B7246B7CF6003ECDC1 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = DA99E1A1246B7CE7003ECDC1;
+					};
+					DA99E1C2246B7CF6003ECDC1 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = DA99E1A1246B7CE7003ECDC1;
+					};
+				};
+			};
+			buildConfigurationList = DA99E19D246B7CE7003ECDC1 /* Build configuration list for PBXProject "ShadowMapping" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA99E199246B7CE7003ECDC1;
+			productRefGroup = DA99E1A3246B7CE7003ECDC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA99E1A1246B7CE7003ECDC1 /* ShadowMapping */,
+				DA99E1B7246B7CF6003ECDC1 /* ShadowMappingTests */,
+				DA99E1C2246B7CF6003ECDC1 /* ShadowMappingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA99E1A0246B7CE7003ECDC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99E207246B7DFC003ECDC1 /* hand_dif.png in Resources */,
+				DA99E1FF246B7DFC003ECDC1 /* body_dif4.png in Resources */,
+				DA99E1F8246B7DFC003ECDC1 /* leg_showroom_spec.png in Resources */,
+				DA99E202246B7DFC003ECDC1 /* body_showroom_spec.png in Resources */,
+				DA99E216246B7E14003ECDC1 /* rabit.obj in Resources */,
+				DA99E214246B7E14003ECDC1 /* nanosuit.blend in Resources */,
+				DA99E20E246B7DFC003ECDC1 /* helmet_showroom_spec.png in Resources */,
+				DA99E20A246B7DFC003ECDC1 /* arm_showroom_spec.png in Resources */,
+				DA99E209246B7DFC003ECDC1 /* glass_dif.png in Resources */,
+				DA99E1B2246B7CF4003ECDC1 /* LaunchScreen.storyboard in Resources */,
+				DA99E1FD246B7DFC003ECDC1 /* Textures in Resources */,
+				DA99E215246B7E14003ECDC1 /* nanosuit.obj in Resources */,
+				DA99E1F9246B7DFC003ECDC1 /* body_showroom_ddn.png in Resources */,
+				DA99E200246B7DFC003ECDC1 /* body_dif3.png in Resources */,
+				DA99E206246B7DFC003ECDC1 /* body_dif.png in Resources */,
+				DA99E1F7246B7DFC003ECDC1 /* skybox.png in Resources */,
+				DA99E201246B7DFC003ECDC1 /* hand_showroom_ddn.png in Resources */,
+				DA99E203246B7DFC003ECDC1 /* arm_showroom_ddn.png in Resources */,
+				DA99E1AF246B7CF4003ECDC1 /* Assets.xcassets in Resources */,
+				DA99E20D246B7DFC003ECDC1 /* helmet_diff.png in Resources */,
+				DA99E20C246B7DFC003ECDC1 /* body_dif1.png in Resources */,
+				DA99E20B246B7DFC003ECDC1 /* glass_ddn.png in Resources */,
+				DA99E205246B7DFC003ECDC1 /* hand_showroom_spec.png in Resources */,
+				DA99E213246B7E14003ECDC1 /* nanosuit.mtl in Resources */,
+				DA99E1FB246B7DFC003ECDC1 /* body_dif5.png in Resources */,
+				DA99E204246B7DFC003ECDC1 /* grass.png in Resources */,
+				DA99E208246B7DFC003ECDC1 /* leg_dif.png in Resources */,
+				DA99E1FC246B7DFC003ECDC1 /* arm_dif.png in Resources */,
+				DA99E1AD246B7CE7003ECDC1 /* Main.storyboard in Resources */,
+				DA99E1FE246B7DFC003ECDC1 /* helmet_showroom_ddn.png in Resources */,
+				DA99E1FA246B7DFC003ECDC1 /* leg_showroom_ddn.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1B6246B7CF6003ECDC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1C1246B7CF6003ECDC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA99E19E246B7CE7003ECDC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99E21C246B7E26003ECDC1 /* Matrix.swift in Sources */,
+				DA99E1AA246B7CE7003ECDC1 /* ViewController.swift in Sources */,
+				DA99E1DC246B7DD7003ECDC1 /* Lighting.metal in Sources */,
+				DA99E1DD246B7DD7003ECDC1 /* SkyBox.metal in Sources */,
+				DA99E1DE246B7DD7003ECDC1 /* BasicStruct.metal in Sources */,
+				DA99E1A6246B7CE7003ECDC1 /* AppDelegate.swift in Sources */,
+				DA99E21F246B7E26003ECDC1 /* Camera.swift in Sources */,
+				DA99E1A8246B7CE7003ECDC1 /* SceneDelegate.swift in Sources */,
+				DA99E21E246B7E26003ECDC1 /* Renderer.swift in Sources */,
+				DA99E21D246B7E26003ECDC1 /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1B4246B7CF6003ECDC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99E1BD246B7CF6003ECDC1 /* ShadowMappingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA99E1BF246B7CF6003ECDC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99E1C8246B7CF6003ECDC1 /* ShadowMappingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA99E1BA246B7CF6003ECDC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA99E1A1246B7CE7003ECDC1 /* ShadowMapping */;
+			targetProxy = DA99E1B9246B7CF6003ECDC1 /* PBXContainerItemProxy */;
+		};
+		DA99E1C5246B7CF6003ECDC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA99E1A1246B7CE7003ECDC1 /* ShadowMapping */;
+			targetProxy = DA99E1C4246B7CF6003ECDC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA99E1AB246B7CE7003ECDC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA99E1AC246B7CE7003ECDC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA99E1B0246B7CF4003ECDC1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA99E1B1246B7CF4003ECDC1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA99E1CA246B7CF6003ECDC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA99E1CB246B7CF6003ECDC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA99E1CD246B7CF6003ECDC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMapping/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMapping";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA99E1CE246B7CF6003ECDC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMapping/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMapping";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DA99E1D0246B7CF6003ECDC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMappingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMappingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShadowMapping.app/ShadowMapping";
+			};
+			name = Debug;
+		};
+		DA99E1D1246B7CF6003ECDC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMappingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMappingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShadowMapping.app/ShadowMapping";
+			};
+			name = Release;
+		};
+		DA99E1D3246B7CF6003ECDC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMappingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMappingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShadowMapping;
+			};
+			name = Debug;
+		};
+		DA99E1D4246B7CF6003ECDC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RCVGK5K27;
+				INFOPLIST_FILE = ShadowMappingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Shadow-Mapping.ShadowMappingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShadowMapping;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA99E19D246B7CE7003ECDC1 /* Build configuration list for PBXProject "ShadowMapping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA99E1CA246B7CF6003ECDC1 /* Debug */,
+				DA99E1CB246B7CF6003ECDC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA99E1CC246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMapping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA99E1CD246B7CF6003ECDC1 /* Debug */,
+				DA99E1CE246B7CF6003ECDC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA99E1CF246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMappingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA99E1D0246B7CF6003ECDC1 /* Debug */,
+				DA99E1D1246B7CF6003ECDC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA99E1D2246B7CF6003ECDC1 /* Build configuration list for PBXNativeTarget "ShadowMappingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA99E1D3246B7CF6003ECDC1 /* Debug */,
+				DA99E1D4246B7CF6003ECDC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA99E19A246B7CE7003ECDC1 /* Project object */;
+}
