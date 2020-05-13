@@ -27,18 +27,20 @@ vertex VertexOut vertex_skybox(
 {
     VertexOut out;
     float4x4 mat = uniforms.scaleMatrix;
-    float scale = 0.1;
+    float scale = 1.5;
     mat[0][0] = scale;
     mat[1][1] = scale;
-    mat[2][2] = scale;
-    float4x4 modelMatrix = // uniforms.transformMatrix * ;
+    mat[2][2] = 3 * scale;
+    float4x4 mat2 = uniforms.transformMatrix;
+    mat2[2][3] = 0;
+    float4x4 modelMatrix =  mat2 *
     mat;// * uniforms.rotateZMatrix*uniforms.rotateYMatrix * uniforms.rotateXMatrix ;
     
     float4 position = vert[vid].position;
     float4 worldPos = modelMatrix * position;
     out.position = uniforms.projectionMatrix *
    //
-    uniforms.cameraViewMatirx *
+   // uniforms.cameraViewMatirx *
     worldPos;
    // out.position.z = 0;
     out.texCoords = vert[vid].texCoords;

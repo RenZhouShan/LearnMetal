@@ -18,70 +18,16 @@ enum RendererError: Error {
 
 class Renderer: NSObject, MTKViewDelegate {
     let skyboxVertices = [
-                    // top
-    VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0/6, 0.0, 0.0]),//左上 0
-    VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//右上 5
-    VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 0.0/6, 0.0, 0.0]),//右上 1
+                       // top
+       VertexTex(position:[-3.0, 0.0, 3.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0, 0.0, 0.0]),//左上 0
+       VertexTex(position:[3.0, 0.0, -3.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0, 0.0, 0.0]),//右上 5
+       VertexTex(position:[3.0, 0.0, 3.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 0.0, 0.0, 0.0]),//右上 1
 
-    VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0/6, 0.0, 0.0]),//左上 0
-    VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 1.0/6, 0.0, 0.0]),//左上 4
-    VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//右上 5
-    
-
-             // left
-     VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 5.0/6, 0.0, 0.0]),//右上 1
-     VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 6.0/6, 0.0, 0.0]),//右上 5
-     VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//右下 3
-
-     VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//右下 3
-     VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 6.0/6, 0.0, 0.0]),//右上 5
-     VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[0.0, 6.0/6, 0.0, 0.0]),//右下 7
-        // */
-        // font
-        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左上 0
-        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 3.0/6, 0.0, 0.0]),//左下 2
-        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 3
-
-        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左上 0
-        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 3
-        VertexTex(position:[2.0, 2.0, 2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右上 1
-        // right
-        VertexTex(position:[-2.0, 2.0, 2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 0
-        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//左上 4
-        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//左下 2
-
-        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//左下 2
-        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[1.0, 5.0/6, 0.0, 0.0]),//左下 6
-        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 5.0/6, 0.0, 0.0]),//左上 4
-         
-                // back
-        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 4
-        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 7
-        VertexTex(position:[2.0, 2.0, -2.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[1.0, 4.0/6, 0.0, 0.0]),//右上 5
-
-        VertexTex(position:[-2.0, 2.0, -2.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[0.0, 4.0/6, 0.0, 0.0]),//左上 4
-        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 3.0/6, 0.0, 0.0]),//右下 7
-        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 3.0/6, 0.0, 0.0]),//左下 6
-
-        
-
-        
-                // bottom
-        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//左下 2
-        VertexTex(position:[2.0, -2.0, 2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 1.0/6, 0.0, 0.0]),//右下 3
-        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右下 7
-
-        VertexTex(position:[-2.0, -2.0, 2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 1.0/6, 0.0, 0.0]),//左下 2
-        VertexTex(position:[-2.0, -2.0, -2.0, 1.0],normal:[0.0, 0.0, 1.0, 0.0],texCoord:[0.0, 2.0/6, 0.0, 0.0]),//左下 6
-        VertexTex(position:[2.0, -2.0, -2.0, 1.0],normal:[1.0, 1.0, 1.0, 0.0],texCoord:[1.0, 2.0/6, 0.0, 0.0]),//右下 7
-        
-                
-
-                
-          // */
-          
-    ];
-    
+       VertexTex(position:[-3.0, 0.0, 3.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 0.0, 0.0, 0.0]),//左上 0
+       VertexTex(position:[-3.0, 0.0, -3.0, 1.0],normal:[1.0, 0.0, 0.0, 0.0],texCoord:[1.0, 1.0, 0.0, 0.0]),//左上 4
+       VertexTex(position:[3.0, 0.0, -3.0, 1.0],normal:[0.0, 1.0, 0.0, 0.0],texCoord:[0.0, 1.0, 0.0, 0.0]),//右上 5
+       ];
+       
     public var device: MTLDevice! = nil
     var metalPipeline: MTLRenderPipelineState! = nil
     var skyboxPipeline: MTLRenderPipelineState! = nil
@@ -209,7 +155,7 @@ class Renderer: NSObject, MTKViewDelegate {
         }
         
         
-        let path = Bundle.main.path(forResource: "skybox", ofType: "png")
+        let path = Bundle.main.path(forResource: "texture", ofType: "jpg")
         let textureLoader = MTKTextureLoader(device: device!)
         let textureLoaderOptions : [MTKTextureLoader.Option : Any]! = [.origin:MTKTextureLoader.Origin.bottomLeft, .SRGB: false]
         skyboxTexture = try! textureLoader.newTexture(URL: URL(fileURLWithPath: path!), options: textureLoaderOptions)
@@ -253,7 +199,7 @@ class Renderer: NSObject, MTKViewDelegate {
         let lookUp = SIMD4<Float>(0.0, 1.0, 0, 0)
         let cameraView = Matrix4x4.cameraView(cameraPos, targetPos, lookUp)
         scaleOffset += 0.005
-        scale = 0.3
+        scale = 0.2
         //scale = sin(scaleOffset) + 1
         let modelMatrices = ModelMatrices.init(SIMD3<Float>(0,-3,-10), SIMD3<Float>(0,rotationAngle,0), SIMD3<Float>(scale,scale,scale))
         let rotateXMatrix = modelMatrices.rotateX//Matrix4x4.rotateXMatrix(byAngle: 1)
