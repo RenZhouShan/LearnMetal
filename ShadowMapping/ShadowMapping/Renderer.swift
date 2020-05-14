@@ -47,6 +47,12 @@ class Renderer: NSObject, MTKViewDelegate {
     var stencilPipelineState: MTLRenderPipelineState! = nil
     var depthStencilState: MTLDepthStencilState! = nil
     
+    var shadowPipelineState: MTLRenderPipelineState! = nil
+    var shadowRenderPassDesc: MTLRenderPassDescriptor! = nil
+    var shadowTexture: MTLTexture! = nil
+    var shadowDepthStencilState: MTLDepthStencilState! = nil
+    var shadowUniformBuffer: MTLBuffer! = nil
+    
     var commandQueue: MTLCommandQueue! = nil
     
     var rotationAngle: Float32 = 0
@@ -68,6 +74,8 @@ class Renderer: NSObject, MTKViewDelegate {
         CreateBuffers()
         CreateModelShaders(metalKitView: metalKitView)
         CreateSkyBox(metalKitView: metalKitView)
+        CreateShadow(metalKitView: metalKitView)
+
         SetTextures()
         UpdateLight()
     }
@@ -116,6 +124,42 @@ class Renderer: NSObject, MTKViewDelegate {
         
         let model = Model.init(name: "nanosuit", device: device, mdlVertexDescriptor: desc, view: metalKitView)
         models.append(model)
+    }
+    
+    func CreateShadow(metalKitView: MTKView){
+        let defaultLibrary = device.makeDefaultLibrary() //else {return}
+        let vertexProgram = defaultLibrary?.makeFunction(name: "vertex_shadow") //else {return}
+        let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        pipelineStateDescriptor.vertexFunction = vertexProgram
+        pipelineStateDescriptor.fragmentFunction = nil
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineStateDescriptor.depthAttachmentPixelFormat = shadowTexture.pixelFormat
+        do {
+          shadowPipelineState = try device?.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
+        } catch let error as NSError {
+          fatalError("error: \(error.localizedDescription)")
+        }
+
+        let depthStencilDescriptor = MTLDepthStencilDescriptor()
+        depthStencilDescriptor.depthCompareFunction = .lessEqual
+        depthStencilDescriptor.isDepthWriteEnabled = true
+        shadowDepthStencilState = device.makeDepthStencilState(descriptor: depthStencilDescriptor)
+        
+
+        let shadowTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .depth32Float,
+                                                                               width: 1024, height: 1024,
+                                                                               mipmapped: false)
+        shadowTextureDescriptor.usage = [.shaderRead, .renderTarget]
+        shadowTexture = device.makeTexture(descriptor: shadowTextureDescriptor)
+        guard let shadowTexture = shadowTexture else { return }
+        shadowTexture.label = "shadow map"
+        
+        shadowRenderPassDesc = MTLRenderPassDescriptor()
+        let shadowAttachment = shadowRenderPassDesc!.depthAttachment
+        shadowAttachment?.texture = shadowTexture
+        shadowAttachment?.loadAction = .clear
+        shadowAttachment?.storeAction = .store
+        shadowAttachment?.clearDepth = 1.0
     }
     func CreateSkyBox(metalKitView: MTKView){
         
@@ -189,6 +233,25 @@ class Renderer: NSObject, MTKViewDelegate {
         let lightse = [light]
         lightBuffer = device.makeBuffer(length: MemoryLayout<Light>.size, options: [])
         memcpy(lightBuffer.contents(), lightse, MemoryLayout<Light>.size)
+    }
+    
+    func UpdateShadowUniformBuffer(){
+        // Matrix Uniforms
+        let cameraPos = SIMD4<Float>(0, 0, 3, 1)
+        let targetPos = SIMD4<Float>(0.0, 0, -1.5, 1)
+        let lookUp = SIMD4<Float>(0.0, 1.0, 0, 0)
+        let cameraView = Matrix4x4.cameraView(cameraPos, targetPos, lookUp)
+        let modelMatrices = ModelMatrices.init(SIMD3<Float>(0,-3,-10), SIMD3<Float>(0,rotationAngle,0), SIMD3<Float>(scale,scale,scale))
+        let rotateXMatrix = modelMatrices.rotateX
+        let rotateYMatrix = modelMatrices.rotateY
+        let rotateZMatrix = modelMatrices.rotateZ
+        let projectionMatrix = Matrix4x4.perspectiveProjection(Float(aspect), fieldOfViewY: 45, near: 0.1, far: 100)
+        let uniform = Uniforms(rotateXMatrix: rotateXMatrix, rotateYMatrix: rotateYMatrix, rotateZMatrix: rotateZMatrix, scaleMatrix: modelMatrices.scale, transformMatrix: modelMatrices.transform,
+             cameraViewMatirx: cameraView, projectionMatrix: projectionMatrix,
+             cameraPos: cameraPos)
+        let uniforms = [uniform]
+        shadowUniformBuffer = device.makeBuffer(length: MemoryLayout<Uniforms>.size, options: [])
+        memcpy(shadowUniformBuffer.contents(), uniforms, MemoryLayout<Uniforms>.size)
     }
     
     func UpdateUniformBuffer(){

@@ -50,6 +50,7 @@
 		DA99E21E246B7E26003ECDC1 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E21A246B7E26003ECDC1 /* Renderer.swift */; };
 		DA99E21F246B7E26003ECDC1 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99E21B246B7E26003ECDC1 /* Camera.swift */; };
 		DA99E221246BD2B1003ECDC1 /* texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA99E220246BD2B1003ECDC1 /* texture.jpg */; };
+		DA99E223246D1565003ECDC1 /* ShadowMapping.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA99E222246D1565003ECDC1 /* ShadowMapping.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		DA99E21A246B7E26003ECDC1 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		DA99E21B246B7E26003ECDC1 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		DA99E220246BD2B1003ECDC1 /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = texture.jpg; path = ShadowMapping/texture.jpg; sourceTree = SOURCE_ROOT; };
+		DA99E222246D1565003ECDC1 /* ShadowMapping.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ShadowMapping.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 				DA99E1DB246B7DD7003ECDC1 /* BasicStruct.metal */,
 				DA99E1D9246B7DD7003ECDC1 /* Lighting.metal */,
 				DA99E1DA246B7DD7003ECDC1 /* SkyBox.metal */,
+				DA99E222246D1565003ECDC1 /* ShadowMapping.metal */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA99E21C246B7E26003ECDC1 /* Matrix.swift in Sources */,
+				DA99E223246D1565003ECDC1 /* ShadowMapping.metal in Sources */,
 				DA99E1AA246B7CE7003ECDC1 /* ViewController.swift in Sources */,
 				DA99E1DC246B7DD7003ECDC1 /* Lighting.metal in Sources */,
 				DA99E1DD246B7DD7003ECDC1 /* SkyBox.metal in Sources */,
