@@ -49,9 +49,12 @@ vertex VertexOut vertex_skybox(
 }
 
 fragment half4 fragment_skybox(VertexOut inFrag [[stage_in]],
-                              texture2d<float, access::sample> skyboxTexture [[texture(0)]]) {
+                              texture2d<float, access::sample> skyboxTexture [[texture(0)]],
+                               texture2d<float, access::sample> shadowTexture [[texture(1)]]) {
     constexpr sampler textureSampler(coord::normalized, address::repeat, filter::linear);
     float4 color = (skyboxTexture.sample(textureSampler, inFrag.texCoords));
-    return half4(color);
+    float4 shadowColor = (shadowTexture.sample(textureSampler, inFrag.texCoords));
+    float4 ret = color - shadowColor;
+    return half4(shadowColor);
         
 };
