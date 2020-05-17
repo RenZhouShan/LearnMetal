@@ -93,14 +93,14 @@ class Renderer: NSObject, MTKViewDelegate {
     }
    func InitDepthStencil(metalKitView: MTKView){
         let depthStateDesciptor = MTLDepthStencilDescriptor()
-    depthStateDesciptor.depthCompareFunction = MTLCompareFunction.always
+    depthStateDesciptor.depthCompareFunction = MTLCompareFunction.less
         depthStateDesciptor.isDepthWriteEnabled = true
        
        depthStencilState = device!.makeDepthStencilState(descriptor: depthStateDesciptor)
 
     let depthStateDesciptor2 = MTLDepthStencilDescriptor()
         depthStateDesciptor2.depthCompareFunction = MTLCompareFunction.always
-        depthStateDesciptor2.isDepthWriteEnabled = false
+        depthStateDesciptor2.isDepthWriteEnabled = true
         plainDepthStencilState = device!.makeDepthStencilState(descriptor: depthStateDesciptor2)
     }
     func CreateModelShaders(metalKitView: MTKView){
@@ -327,21 +327,17 @@ class Renderer: NSObject, MTKViewDelegate {
         UpdateUniformBuffer()
         UpdateShadowUniformBuffer()
         if let commandBuffer = commandQueue.makeCommandBuffer() {
-            let renderPassDescriptor = view.currentRenderPassDescriptor
-            if let renderPassDescriptor = renderPassDescriptor, let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
+            shadowRenderPassDesc = view.currentRenderPassDescriptor
+            if let renderPassDescriptor = shadowRenderPassDesc, let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: shadowRenderPassDesc) {
                 
                 let shadowTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: view.depthStencilPixelFormat,width: Int(view.drawableSize.width), height: Int(view.drawableSize.height),mipmapped: false)
                 shadowTextureDescriptor.storageMode = .private
                 shadowTextureDescriptor.usage = [.shaderRead, .renderTarget]
                 //  shadowTextureDescriptor.
-                shadowTexture = device.makeTexture(descriptor: shadowTextureDescriptor)
+                shadowTexture = view.multisampleColorTexture
+                    //device.makeTexture(descriptor: shadowTextureDescriptor)
                 
                 let currentDrawable = view.currentDrawable
-                view.clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
-                renderPassDescriptor.colorAttachments[0].texture = currentDrawable?.texture
-                renderPassDescriptor.colorAttachments[0].loadAction = .clear
-                renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
-                
                 
                 renderPassDescriptor.depthAttachment.clearDepth = 1.0
                 
@@ -391,7 +387,7 @@ class Renderer: NSObject, MTKViewDelegate {
                 
                 shadowTexture = renderPassDescriptor.depthAttachment.texture
                 
-                /*
+                
                 commandEncoder.popDebugGroup()
                 commandEncoder.endEncoding()
 
@@ -403,34 +399,21 @@ class Renderer: NSObject, MTKViewDelegate {
                 commandEncoder.pushDebugGroup("main pass")
                 commandEncoder.label = "main"
                 let currentDrawable = view.currentDrawable// */
-                view.clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
+           //     view.clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
 
-                renderPassDescriptor.colorAttachments[0].texture = currentDrawable?.texture
-                renderPassDescriptor.colorAttachments[0].loadAction = .clear
-                renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0)
-
-                
+                view.clearDepth = 1.0
+                view.depthStencilAttachmentTextureUsage = [.shaderRead, .renderTarget]
+                //view.depthStencilTexture?.usage =[.shaderRead, .renderTarget]
                 commandEncoder.setDepthStencilState(plainDepthStencilState)
                 commandEncoder.setVertexBuffer(vertexSkyboxBuffer, offset: 0, index: 0)
                 commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
                 commandEncoder.setFragmentTexture(skyboxTexture, index: 0)
+                commandEncoder.setFragmentTexture(view.depthStencilTexture, index: 1)
                 commandEncoder.setFragmentTexture(renderPassDescriptor.depthAttachment.texture, index: 1)
                 
                 commandEncoder.setRenderPipelineState(skyboxPipeline)
                 commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: skyboxVertices.count, instanceCount: 1)
                 
-                // */
-                renderPassDescriptor.depthAttachment.clearDepth = 1.0
-                renderPassDescriptor.depthAttachment.loadAction = MTLLoadAction.clear
-                renderPassDescriptor.depthAttachment.storeAction = MTLStoreAction.store
-                renderPassDescriptor.depthAttachment.texture = view.depthStencilTexture
-                
-                
-                renderPassDescriptor.depthAttachment.clearDepth = 1.0
-                
-                renderPassDescriptor.depthAttachment.loadAction = MTLLoadAction.clear
-                renderPassDescriptor.depthAttachment.storeAction = MTLStoreAction.store
-                renderPassDescriptor.depthAttachment.texture = view.depthStencilTexture
                 drawModel(commandEncoder, uniformBuffer)
                 //CreateOutlineShaders(metalKitView: view)
                 

@@ -27,8 +27,9 @@ class ViewController: UIViewController {
         }
         
         mtkView.device = defaultDevice
-        mtkView.backgroundColor = UIColor.black
+        //mtkView.backgroundColor = UIColor.black
 
+        mtkView.clearColor = MTLClearColor(red: 0, green: 0, blue: 1, alpha: 1)
         guard let newRenderer = Renderer(metalKitView: mtkView) else {
             print("Renderer cannot be initialized")
             return
