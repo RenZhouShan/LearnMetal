@@ -118,7 +118,7 @@ fragment float4 fragment_model(
     constexpr sampler textureSampler(coord::normalized, address::repeat, filter::linear);
     float2 coor =vert.texCoords;
     //coor = float2(0.5, 0.5);
-    float4 diffuseColor = (texture.sample(samplr, coor));
+    float4 diffuseColor = float4(1,0,0,1);//(texture.sample(samplr, coor));
     diffuseColor.a = 1;
     //float a = diffuseColor.a;
     //diffuseColor = 1 - diffuseColor;
@@ -135,7 +135,7 @@ fragment float4 fragment_model(
     float4 diffuse = light.difuse * diff * diffuseColor;
     
     float4 flashLightDir = -nor(light.flashLightPos - vert.worldPos);
-    float4 specularColor = (specularTexture.sample(samplr, coor));
+    float4 specularColor = float4(0,0.3,0.3,1);//(specularTexture.sample(samplr, coor));
     
     float4 reflectDir = reflect(lightDir, norm);
     float4 viewDir = nor(vert.position - vert.cameraPos);

@@ -21,6 +21,7 @@
 		DA104C52247123D400D61727 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA104C4F247123D400D61727 /* Matrix.swift */; };
 		DA104C562471243200D61727 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA104C542471243200D61727 /* Lighting.metal */; };
 		DA104C572471243200D61727 /* BasicStruct.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA104C552471243200D61727 /* BasicStruct.metal */; };
+		DA9FDBDA24760B9F0058DB02 /* Compute.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA9FDBD924760B9F0058DB02 /* Compute.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,14 @@
 		DA104BC024711EF400D61727 /* ComputeShaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputeShaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA104BC424711EF400D61727 /* ComputeShaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputeShaderUITests.swift; sourceTree = "<group>"; };
 		DA104BC624711EF400D61727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA104C4B2471235600D61727 /* rabit.obj */ = {isa = PBXFileReference; lastKnownFileType = file; name = rabit.obj; path = ComputeShader/rabit.obj; sourceTree = SOURCE_ROOT; };
+		DA104C4B2471235600D61727 /* rabit.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = rabit.obj; path = ComputeShader/rabit.obj; sourceTree = SOURCE_ROOT; };
 		DA104C4D247123D400D61727 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DA104C4E247123D400D61727 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		DA104C4F247123D400D61727 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		DA104C542471243200D61727 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Lighting.metal; path = ComputeShader/Lighting.metal; sourceTree = SOURCE_ROOT; };
 		DA104C552471243200D61727 /* BasicStruct.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = BasicStruct.metal; path = ComputeShader/BasicStruct.metal; sourceTree = SOURCE_ROOT; };
+		DA9FDBD824760B720058DB02 /* ShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShaderType.h; path = ComputeShader/ShaderType.h; sourceTree = SOURCE_ROOT; };
+		DA9FDBD924760B9F0058DB02 /* Compute.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Compute.metal; path = ComputeShader/Compute.metal; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 			children = (
 				DA104C552471243200D61727 /* BasicStruct.metal */,
 				DA104C542471243200D61727 /* Lighting.metal */,
+				DA9FDBD824760B720058DB02 /* ShaderType.h */,
+				DA9FDBD924760B9F0058DB02 /* Compute.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				DA104BA524711EF300D61727 /* SceneDelegate.swift in Sources */,
 				DA104C51247123D400D61727 /* Renderer.swift in Sources */,
 				DA104C50247123D400D61727 /* Model.swift in Sources */,
+				DA9FDBDA24760B9F0058DB02 /* Compute.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,7 +102,7 @@ class Renderer: NSObject, MTKViewDelegate {
         attribute = desc.attributes[1] as! MDLVertexAttribute
         attribute.name = MDLVertexAttributeNormal
         
-        let model = Model.init(name: "rabbit", device: device, mdlVertexDescriptor: desc, view: metalKitView)
+        let model = Model.init(name: "rabit", device: device, mdlVertexDescriptor: desc, view: metalKitView)
         models.append(model)
     }
     func SetTextures(){
@@ -144,7 +144,7 @@ class Renderer: NSObject, MTKViewDelegate {
         let lookUp = SIMD4<Float>(0.0, 1.0, 0, 0)
         let cameraView = Matrix4x4.cameraView(cameraPos, targetPos, lookUp)
         scaleOffset += 0.005
-        scale = 0.3
+        scale = 10
         //scale = sin(scaleOffset) + 1
         let modelMatrices = ModelMatrices.init(SIMD3<Float>(0,-3,-10), SIMD3<Float>(0,rotationAngle,0), SIMD3<Float>(scale,scale,scale))
         let rotateXMatrix = modelMatrices.rotateX//Matrix4x4.rotateXMatrix(byAngle: 1)
